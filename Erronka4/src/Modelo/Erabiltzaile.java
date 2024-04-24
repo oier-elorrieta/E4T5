@@ -5,66 +5,70 @@ import java.util.Objects;
 
 public abstract class Erabiltzaile {
 
-	protected String Izena;
-	protected String Abizena;
-	protected String Erabiltzailea;
-	protected String Pasahitza;
-	protected String Jaiotze_data;
+	protected String izena;
+	protected String abizena;
+	protected String erabiltzailea;
+	protected String pasahitza;
+	protected String jaiotze_data;
 	
 	public Erabiltzaile(String izena, String abizena, String erabiltzailea, String pasahitza,
 			String jaiotze_data) {
 		
-		Izena = izena;
-		Abizena = abizena;
-		Erabiltzailea = erabiltzailea;
-		Pasahitza = pasahitza;
-		Jaiotze_data = jaiotze_data;
+		this.izena = izena;
+		this.abizena = abizena;
+		this.erabiltzailea = erabiltzailea;
+		this.pasahitza = pasahitza;
+		this.jaiotze_data = jaiotze_data; 
 	}
 
+	
+
 	public String getIzena() {
-		return Izena;
+		return izena;
 	}
 
 	public void setIzena(String izena) {
-		Izena = izena;
+		this.izena = izena;
 	}
 
 	public String getAbizena() {
-		return Abizena;
+		return abizena;
 	}
 
 	public void setAbizena(String abizena) {
-		Abizena = abizena;
+		this.abizena = abizena;
 	}
 
 	public String getErabiltzailea() {
-		return Erabiltzailea;
+		return erabiltzailea;
 	}
 
 	public void setErabiltzailea(String erabiltzailea) {
-		Erabiltzailea = erabiltzailea;
+		this.erabiltzailea = erabiltzailea;
 	}
 
 	public String getPasahitza() {
-		return Pasahitza;
+		return pasahitza;
 	}
 
 	public void setPasahitza(String pasahitza) {
-		Pasahitza = pasahitza;
+		this.pasahitza = pasahitza;
 	}
 
 	public String getJaiotze_data() {
-		return Jaiotze_data;
+		return jaiotze_data;
 	}
 
 	public void setJaiotze_data(String jaiotze_data) {
-		Jaiotze_data = jaiotze_data;
+		this.jaiotze_data = jaiotze_data;
 	}
+
+	
 
 	@Override
 	public String toString() {
-		return "Erabiltzaile [Izena=" + Izena + ", Abizena=" + Abizena + ", Erabiltzailea="
-				+ Erabiltzailea + ", Pasahitza=" + Pasahitza + ", Jaiotze_data=" + Jaiotze_data + "]";
+		return "Erabiltzaile [izena=" + izena + ", abizena=" + abizena + ", erabiltzailea=" + erabiltzailea
+				+ ", pasahitza=" + pasahitza + ", jaiotze_data=" + jaiotze_data + "]";
 	}
 
 	@Override
@@ -76,10 +80,13 @@ public abstract class Erabiltzaile {
 		if (getClass() != obj.getClass())
 			return false;
 		Erabiltzaile other = (Erabiltzaile) obj;
-		return Objects.equals(Abizena, other.Abizena) && Objects.equals(Erabiltzailea, other.Erabiltzailea)
-			&& Objects.equals(Izena, other.Izena)
-				&& Objects.equals(Jaiotze_data, other.Jaiotze_data) && Objects.equals(Pasahitza, other.Pasahitza);
+		return Objects.equals(abizena, other.abizena) && Objects.equals(erabiltzailea, other.erabiltzailea)
+				&& Objects.equals(pasahitza, other.pasahitza)
+				&& Objects.equals(izena, other.izena) && Objects.equals(jaiotze_data, other.jaiotze_data);
+				
 	}
+
+	
 	
 	
 	

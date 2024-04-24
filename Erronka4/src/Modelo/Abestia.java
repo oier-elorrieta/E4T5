@@ -3,56 +3,66 @@ package Modelo;
 import java.util.Objects;
 
 public class Abestia {
-	protected int IdMusikari;
-	protected int IdAudio;
-	protected int Iraupena;
-	protected String Izenburua;
+	protected int idMusikari;
+	protected int idAudio;
+	protected int iraupena;
+	protected String izenburua;
 
 	// KONSTRUKTOREA //
 	
 	public Abestia(int idMusikari, int idAudio, int iraupena, String izenburua) {
-		IdMusikari = idMusikari;
-		IdAudio = idAudio;
-		Iraupena = iraupena;
-		Izenburua = izenburua;
+		this.idMusikari = idMusikari;
+		this.idAudio = idAudio;
+		this.iraupena = iraupena;
+		this.izenburua = izenburua;
 	}
-
-	// GETTERRAK ETA SETTERRAK //
 	
-	public int getIdMusikari() {
-		return IdMusikari;
+	
+
+	// GETTERS AND SETTERS //
+	
+
+	public int getIdmusikari() {
+		return idMusikari;
 	}
 
-	public void setIdMusikari(int idMusikari) {
-		IdMusikari = idMusikari;
+
+	public void setIdmusikari(int idMusikari) {
+		this.idMusikari = idMusikari;
 	}
 
-	public int getIdAudio() {
-		return IdAudio;
+
+	public int getIdaudio() {
+		return idAudio;
 	}
 
-	public void setIdAudio(int idAudio) {
-		IdAudio = idAudio;
+
+	public void setIdaudio(int idAudio) {
+		this.idAudio = idAudio;
 	}
+
 
 	public int getIraupena() {
-		return Iraupena;
+		return iraupena;
 	}
+
 
 	public void setIraupena(int iraupena) {
-		Iraupena = iraupena;
+		this.iraupena = iraupena;
 	}
+
 
 	public String getIzenburua() {
-		return Izenburua;
+		return izenburua;
 	}
 
+
 	public void setIzenburua(String izenburua) {
-		Izenburua = izenburua;
+		this.izenburua = izenburua;
 	}
 
 	// EQUALS //
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -62,16 +72,15 @@ public class Abestia {
 		if (getClass() != obj.getClass())
 			return false;
 		Abestia other = (Abestia) obj;
-		return IdAudio == other.IdAudio && IdMusikari == other.IdMusikari && Iraupena == other.Iraupena
-				&& Objects.equals(Izenburua, other.Izenburua);
+		return idAudio == other.idAudio && idMusikari == other.idMusikari && iraupena == other.iraupena
+				&& Objects.equals(izenburua, other.izenburua);
 	}
 
 	// TOSTRING //
-	
 	@Override
 	public String toString() {
-		return "Abestiak [IdMusikari=" + IdMusikari + ", IdAudio=" + IdAudio + ", Iraupena=" + Iraupena + ", Izenburua="
-				+ Izenburua + "]";
+		return "Abestia [Idmusikari=" + idMusikari + ", IdAudio=" + idAudio + ", Iraupena=" + iraupena + ", Izenburua="
+				+ izenburua + "]";
 	}
 
 }

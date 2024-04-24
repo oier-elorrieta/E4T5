@@ -29,7 +29,7 @@ public class DBuser {
 
 	protected String logeatuta;//Hemen logeatu den erabiltzailea gordeko dugu, gero bisten artean parametro bezala DBuser objektua pasatzeko atributu bezala loerabiltzailea gordetzen duena
 	
-	public String getLogeatuta() {
+	public String getLogeatuta() { 
 		return logeatuta;
 	}
 
@@ -143,7 +143,7 @@ public class DBuser {
 	 */
 	public boolean insertatuBezeroBerria(Erabiltzaile user, JComboBox hizkuntza, JTextField premiumData) {
 		
-		String hzkAutatua=hizkuntzakLortu().get(hizkuntza.getSelectedIndex()).getHizkuntzaID();
+		String hzkAutatua=hizkuntzakLortu().get(hizkuntza.getSelectedIndex()).getHizkuntzaid();
 		
 		
 		boolean insertatua = false;

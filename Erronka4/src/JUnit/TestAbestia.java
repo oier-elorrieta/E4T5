@@ -7,38 +7,38 @@ import org.junit.Test;
 import Modelo.Abestia;
 
 
-public class TestAbestia {
+public class TestAbestia { 
 
 	// SETUP BAT TESTAK EGITEKO //
 	
 	static Abestia ab1;
 	@Before
 	public void setUp() throws Exception {
-	ab1 = new Abestia(1,1,200,"Izenburua");
+	ab1 = new Abestia(1,1,200,"Izenburua"); 
 	}
 	
 	// GETTERS ETA SETTERS TESTAK //
 	
 	@Test
 	public void testGetIdMusikari() {
-		assertEquals(1, ab1.getIdMusikari());
+		assertEquals(1, ab1.getIdmusikari());
 	}
 	@Test
 	public void testSetIdMusikari() {
-		ab1.setIdMusikari(0);
-		assertEquals(0, ab1.getIdMusikari());
+		ab1.setIdmusikari(0);
+		assertEquals(0, ab1.getIdmusikari());  
 	}
 	@Test
 	public void testGetIdAudioa() {
-		assertEquals(1, ab1.getIdAudio());
+		assertEquals(1, ab1.getIdaudio());
 	}
 	@Test
 	public void testSetIdaudioa() {
-		ab1.setIdAudio(0);
-		assertEquals(0, ab1.getIdAudio());
+		ab1.setIdaudio(0);
+		assertEquals(0, ab1.getIdaudio()); 
 	}
 	@Test
-	public void testGetIraupena() {
+	public void testGetIraupena() { 
 		assertEquals(200, ab1.getIraupena());
 	}
 	@Test
@@ -61,7 +61,7 @@ public class TestAbestia {
 	@Test
 	public void testtoString() {
 		String txtAbestiak = ab1.toString();
-		String esperotakoaAbesti = "Abestiak [IdMusikari=" + ab1.getIdMusikari() + ", IdAudio=" + ab1.getIdAudio() + ", Iraupena=" + ab1.getIraupena() + ", Izenburua="
+		String esperotakoaAbesti = "Abestiak [IdMusikari=" + ab1.getIdmusikari() + ", IdAudio=" + ab1.getIdaudio() + ", Iraupena=" + ab1.getIraupena() + ", Izenburua="
 				+ ab1.getIzenburua() + "]";
 	}
 	

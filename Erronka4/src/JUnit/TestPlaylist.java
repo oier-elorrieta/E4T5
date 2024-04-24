@@ -24,13 +24,13 @@ public class TestPlaylist {
 	
 	@Test
 	public void testGetIdList() {
-		assertEquals(1, pl1.getIdList());
+		assertEquals(1, pl1.getIdlist());
 	}
 
 	@Test
 	public void testSetIdList() {
-		pl1.setIdList(0);
-		assertEquals(0, pl1.getIdList());
+		pl1.setIdlist(0);
+		assertEquals(0, pl1.getIdlist());
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class TestPlaylist {
 	@Test
 	public void testtoString() {
 		String txtPlaylist = pl1.toString();
-		String esperotakoaPlaylist = "Playlistak [IdList=" + pl1.getIdList() + ", Izenburua=" + pl1.getIzenburua() + ", Sorrera_data=" + pl1.getSorrera_data() + "]";
+		String esperotakoaPlaylist = "Playlistak [IdList=" + pl1.getIdlist() + ", Izenburua=" + pl1.getIzenburua() + ", Sorrera_data=" + pl1.getSorrera_data() + "]";
 	}
 	
 	//EQUALS TEST//

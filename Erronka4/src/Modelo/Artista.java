@@ -6,45 +6,47 @@ public class Artista {
 protected int idArtista;
 protected String izenaArtistikoa;
 protected String deskribapena;
-protected boolean ezaugarria;
+protected boolean ezaugarria; 
 
-public Artista(int idArtista, String izenaArtistikoa, String deskribapena, boolean ezaugarria) {
-    this.idArtista = idArtista;
-    this.izenaArtistikoa = izenaArtistikoa;
+public Artista(int idartista, String izenaartistikoa, String deskribapena, boolean ezaugarria) {
+    this.idArtista = idartista;
+    this.izenaArtistikoa = izenaartistikoa;
     this.deskribapena = deskribapena;
     this.ezaugarria = ezaugarria;
 }
 
-public int getIdArtista() {
-    return idArtista;
+// GETTERS AND SETTERS
+
+public int getIdartista() {
+	return idArtista;
 }
 
-public void setIdArtista(int idArtista) {
-    this.idArtista = idArtista;
+public void setIdartista(int idartista) {
+	this.idArtista = idartista;
 }
 
-public String getIzenaArtistikoa() {
-    return izenaArtistikoa;
+public String getIzenaartistikoa() {
+	return izenaArtistikoa;
 }
 
-public void setIzenaArtistikoa(String izenaArtistikoa) {
-    this.izenaArtistikoa = izenaArtistikoa;
+public void setIzenaartistikoa(String izenaartistikoa) {
+	this.izenaArtistikoa = izenaartistikoa;
 }
 
 public String getDeskribapena() {
-    return deskribapena;
+	return deskribapena;
 }
 
 public void setDeskribapena(String deskribapena) {
-    this.deskribapena = deskribapena;
+	this.deskribapena = deskribapena;
 }
 
 public boolean isEzaugarria() {
-    return ezaugarria;
+	return ezaugarria;
 }
 
 public void setEzaugarria(boolean ezaugarria) {
-    this.ezaugarria = ezaugarria;
+	this.ezaugarria = ezaugarria;
 }
 
 @Override

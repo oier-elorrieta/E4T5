@@ -19,12 +19,12 @@ public class TestFree {
 	String data = "2024-04-18";
 	f1 = new UserFree("izena","Abizena","Erabiltzailea","Pasahitza",data);
 	}
-	
+	 
 	//TEST GETTERS AND SETERS
 	
 	@Test
 	public void TestGetIzena(){
-		assertEquals("izena", f1.getIzena());
+		assertEquals("izena", f1.getIzena());   
 	}
 	@Test
 	public void TestSetIzena(){

@@ -7,7 +7,7 @@ import org.junit.Test;
 import Modelo.Artista;
 
 
-public class TestArtista {
+public class TestArtista { 
 
 	// SETUP BAT TESTAK EGITEKO //
 	
@@ -21,22 +21,22 @@ public class TestArtista {
 	
 	@Test
 	public void testGetIdArtista() {
-		assertEquals(1, ar1.getIdArtista());
+		assertEquals(1, ar1.getIdartista());
 	}
 	
 	@Test
 	public void testSetIdArtista() {
-		ar1.setIdArtista(0);
-		assertEquals(0, ar1.getIdArtista());
+		ar1.setIdartista(0);
+		assertEquals(0, ar1.getIdartista());
 	}
 	@Test
 	public void testGetIzenArtistiko() {
-		assertEquals("IzenArtistiko", ar1.getIzenaArtistikoa());
+		assertEquals("IzenArtistiko", ar1.getIzenaartistikoa());
 	}
 	@Test
 	public void testSetIzenartistiko() {
-		ar1.setIzenaArtistikoa("Marie Curlie");
-		assertEquals("Marie Curlie", ar1.getIzenaArtistikoa());
+		ar1.setIzenaartistikoa("Marie Curlie");
+		assertEquals("Marie Curlie", ar1.getIzenaartistikoa());
 	}
 	@Test
 	public void testGetDeskribapena() {
@@ -63,7 +63,7 @@ public class TestArtista {
 	@Test
 	public void testToString() {
 		String txtArtista = ar1.toString();
-		String esperatutakoArtista = "Artistak [idArtista=" + ar1.getIdArtista() + ", izenaArtistikoa=" + ar1.getIzenaArtistikoa() + ", deskribapena="
+		String esperatutakoArtista = "Artistak [idArtista=" + ar1.getIdartista() + ", izenaArtistikoa=" + ar1.getIzenaartistikoa() + ", deskribapena="
 				+ ar1.getDeskribapena() + ", ezaugarria=" + ar1.isEzaugarria() + "]";
 	}
 	
