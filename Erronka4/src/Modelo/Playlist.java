@@ -3,13 +3,13 @@ package Modelo;
 import java.util.Date;
 import java.util.Objects;
 
-public class Playlistak {
+public class Playlist {
     protected int IdList;
     protected String Izenburua;
     protected Date Sorrera_data;
     
     // KONTRUKTOREA //
-    public Playlistak(int idList, String izenburua, Date sorrera_data) {
+    public Playlist(int idList, String izenburua, Date sorrera_data) {
         IdList = idList;
         Izenburua = izenburua;
         Sorrera_data = sorrera_data;
@@ -50,7 +50,7 @@ public class Playlistak {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Playlistak other = (Playlistak) obj;
+        Playlist other = (Playlist) obj;
         return IdList == other.IdList && Objects.equals(Izenburua, other.Izenburua)
                 && Objects.equals(Sorrera_data, other.Sorrera_data);
     }

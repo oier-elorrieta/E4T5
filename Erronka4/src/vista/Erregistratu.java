@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import DB.DBuser;
-import Modelo.Erabilgarriak;
+import Metodoak.Erabilgarriak;
 import Modelo.Erabiltzaile;
 import Modelo.Hizkuntza;
 import Modelo.Premium;

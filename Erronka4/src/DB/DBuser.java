@@ -13,7 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Modelo.Erabilgarriak;
+import Metodoak.Erabilgarriak;
 import Modelo.Erabiltzaile;
 import Modelo.Hizkuntza;
 

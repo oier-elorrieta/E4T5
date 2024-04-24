@@ -3,17 +3,18 @@ package JUnit;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import Modelo.Artistak;
+
+import Modelo.Artista;
 
 
-public class TestArtistak {
+public class TestArtista {
 
 	// SETUP BAT TESTAK EGITEKO //
 	
-	static Artistak ar1;
+	static Artista ar1;
 	@Before
 	public void setUp() throws Exception {
-	ar1 = new Artistak(1,"IzenArtistiko","Deskribapena",true);
+	ar1 = new Artista(1,"IzenArtistiko","Deskribapena",true);
 	}
 
 	// GETTERRAK ETA SETTERRAK TESTAK //
@@ -85,7 +86,7 @@ public class TestArtistak {
 
 		@Test
 		public void TestEquals(){
-		Artistak ar2 = new Artistak(1,"IzenArtistiko","Deskribapena",true);
+		Artista ar2 = new Artista(1,"IzenArtistiko","Deskribapena",true);
 		assertTrue(ar1.equals(ar2));
 		}
 }

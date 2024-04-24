@@ -3,16 +3,18 @@ package JUnit;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import Modelo.Abestiak;
 
-public class TestAbestiak {
+import Modelo.Abestia;
+
+
+public class TestAbestia {
 
 	// SETUP BAT TESTAK EGITEKO //
 	
-	static Abestiak ab1;
+	static Abestia ab1;
 	@Before
 	public void setUp() throws Exception {
-	ab1 = new Abestiak(1,1,200,"Izenburua");
+	ab1 = new Abestia(1,1,200,"Izenburua");
 	}
 	
 	// GETTERS ETA SETTERS TESTAK //
@@ -82,7 +84,7 @@ public class TestAbestiak {
 
 		@Test
 		public void TestEquals(){
-		Abestiak ab2 = new Abestiak(1,1,200,"Izenburua");
+		Abestia ab2 = new Abestia(1,1,200,"Izenburua");
 		assertTrue(ab1.equals(ab2));
 		}
 }

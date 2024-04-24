@@ -2,7 +2,7 @@ package Modelo;
 
 import java.util.Objects;
 
-public class Abestiak {
+public class Abestia {
 	protected int IdMusikari;
 	protected int IdAudio;
 	protected int Iraupena;
@@ -10,7 +10,7 @@ public class Abestiak {
 
 	// KONSTRUKTOREA //
 	
-	public Abestiak(int idMusikari, int idAudio, int iraupena, String izenburua) {
+	public Abestia(int idMusikari, int idAudio, int iraupena, String izenburua) {
 		IdMusikari = idMusikari;
 		IdAudio = idAudio;
 		Iraupena = iraupena;
@@ -61,7 +61,7 @@ public class Abestiak {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Abestiak other = (Abestiak) obj;
+		Abestia other = (Abestia) obj;
 		return IdAudio == other.IdAudio && IdMusikari == other.IdMusikari && Iraupena == other.Iraupena
 				&& Objects.equals(Izenburua, other.Izenburua);
 	}

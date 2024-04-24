@@ -2,13 +2,13 @@ package Modelo;
 
 import java.util.Objects;
 
-public class Artistak {
+public class Artista {
 protected int idArtista;
 protected String izenaArtistikoa;
 protected String deskribapena;
 protected boolean ezaugarria;
 
-public Artistak(int idArtista, String izenaArtistikoa, String deskribapena, boolean ezaugarria) {
+public Artista(int idArtista, String izenaArtistikoa, String deskribapena, boolean ezaugarria) {
     this.idArtista = idArtista;
     this.izenaArtistikoa = izenaArtistikoa;
     this.deskribapena = deskribapena;
@@ -55,7 +55,7 @@ public boolean equals(Object obj) {
         return false;
     if (getClass() != obj.getClass())
         return false;
-    Artistak other = (Artistak) obj;
+    Artista other = (Artista) obj;
     return Objects.equals(deskribapena, other.deskribapena) && ezaugarria == other.ezaugarria
             && idArtista == other.idArtista && Objects.equals(izenaArtistikoa, other.izenaArtistikoa);
 }

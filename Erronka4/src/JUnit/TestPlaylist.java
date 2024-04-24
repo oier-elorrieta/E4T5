@@ -7,17 +7,17 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import Modelo.Playlistak;
+import Modelo.Playlist;
 
-public class TestPlaylisttak {
+public class TestPlaylist {
 
 	// SETUP BAT TESTAK EGITEKO//
 	
-	static Playlistak pl1;
+	static Playlist pl1;
 	@Before
 	public void setUp() throws Exception {
 	Date Sorrera_data = new Date(2018, 04, 18);
-	pl1 = new Playlistak(1,"Izenburua",Sorrera_data);
+	pl1 = new Playlist(1,"Izenburua",Sorrera_data);
 	}
 	
 	// GETTERS ETA SETTERS TESTAK //
@@ -84,7 +84,7 @@ public class TestPlaylisttak {
 		@Test
 		public void TestEquals(){
 			Date Sorrera_data = new Date(2018, 04, 18);
-		Playlistak pl2 = new Playlistak(1,"Izenburua",Sorrera_data);
+		Playlist pl2 = new Playlist(1,"Izenburua",Sorrera_data);
 		assertTrue(pl1.equals(pl2));
 		}
 		
