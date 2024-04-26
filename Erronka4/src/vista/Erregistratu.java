@@ -39,10 +39,6 @@ public class Erregistratu extends JFrame {
 	private JPasswordField pasahitza2;
 
 	/**
-	 * Launch the application.
-	 */
-
-	/**
 	 * Create the frame.
 	 */
 	public Erregistratu() {

@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Hizkuntza {
 	
-	protected String hizkuntzaId;
-	protected String desk;
+	private String hizkuntzaId;
+	private String desk;
 	
 	public Hizkuntza(String hizkuntzaid, String desk) {
 		this.hizkuntzaId = hizkuntzaid;

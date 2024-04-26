@@ -3,10 +3,10 @@ package Modelo;
 import java.util.Objects;
 
 public class Abestia {
-	protected int idMusikari;
-	protected int idAudio;
-	protected int iraupena;
-	protected String izenburua;
+	private int idMusikari;
+	private int idAudio;
+	private int iraupena;
+	private String izenburua;
 
 	// KONSTRUKTOREA //
 	
@@ -16,7 +16,6 @@ public class Abestia {
 		this.iraupena = iraupena;
 		this.izenburua = izenburua;
 	}
-	
 	
 
 	// GETTERS AND SETTERS //

@@ -4,9 +4,9 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Playlist {
-    protected int idList;
-    protected String izenburua;
-    protected Date sorrera_data;
+	private int idList;
+	private String izenburua;
+	private Date sorrera_data;
     
     // KONTRUKTOREA //
     public Playlist(int idList, String izenburua, Date sorrera_data) {
