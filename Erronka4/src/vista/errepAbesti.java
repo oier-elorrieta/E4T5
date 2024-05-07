@@ -13,18 +13,24 @@ import javax.swing.border.TitledBorder;
 
 import DB.DBerrep;
 import DB.DBmusika;
+import Metodoak.Erabilgarriak;
 import Metodoak.ErrepMetodoak;
-import Modelo.Abestiak;
-import Modelo.Albumak;
+import Modelo.Abestia;
+import Modelo.Albuma;
 import Modelo.Erreprodukzio;
 import Modelo.logeazioDatuak;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
@@ -34,11 +40,13 @@ public class errepAbesti extends JFrame {
 	private JPanel contentPane;
 	private JTextField tFinfo;
 	private long azkenKlika;
+	private JTextField tFDenbora;
 
-	public errepAbesti(logeazioDatuak logData,Abestiak selectedAbestia, Albumak selectedAlbum) {
+	public errepAbesti(logeazioDatuak logData,Abestia selectedAbestia, Albuma selectedAlbum) {
 
 		Erreprodukzio erreprodukzio = new Erreprodukzio(selectedAlbum.getIzenburua(),selectedAbestia.getIzenburua());
 		ErrepMetodoak errepMetodoak = new ErrepMetodoak();
+		Erabilgarriak erabilgarriak = new Erabilgarriak();
 		DBerrep dbErrep = new DBerrep();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,7 +60,7 @@ public class errepAbesti extends JFrame {
 		JButton btnAtzera = new JButton("Atzera");
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				errepMetodoak.detenerClip();
+				errepMetodoak.audioaGelditu();
 				dispose();
 				try {
 					AlbumLeihoa frame = new AlbumLeihoa(logData,selectedAlbum);
@@ -67,6 +75,18 @@ public class errepAbesti extends JFrame {
 		contentPane.add(btnAtzera);
 		
 		JButton btnErabiltzailea = new JButton("");
+		btnErabiltzailea.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				errepMetodoak.audioaGelditu();
+				dispose();
+				try {
+					iragarkia frame = new iragarkia( logData, selectedAbestia, selectedAlbum);
+					frame.setVisible(true);
+				} catch (Exception e3) {
+					e3.printStackTrace();
+				}
+			}
+		});
 		btnErabiltzailea.setBounds(876, 11, 89, 23);
 		contentPane.add(btnErabiltzailea);
 		
@@ -104,7 +124,6 @@ public class errepAbesti extends JFrame {
         try {
             icon = new ImageIcon(selectedAbestia.getIrudia().getBytes(1, (int) selectedAbestia.getIrudia().length()));
         } catch (SQLException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
 		
@@ -122,7 +141,7 @@ public class errepAbesti extends JFrame {
 			    		btnPLAYSTOP.setText("STOP");
 			    	}else {
 			    		btnPLAYSTOP.setText("PLAY");
-			    		errepMetodoak.detenerClip();
+			    		errepMetodoak.audioaGelditu();
 			    	}
 			    }
 			});
@@ -139,8 +158,8 @@ public class errepAbesti extends JFrame {
                 if (tiempoActual - azkenKlika >= 10 * 60 * 1000 || dbErrep.premiumDa(logData.getLogeatuta())==true) {
                 	   
                 	btnPLAYSTOP.setText("PLAY");
-                	errepMetodoak.detenerClip();
-                	Abestiak autatutakoAbestiBerria=erreprodukzio.aurrekoKantara();
+                	errepMetodoak.audioaGelditu();
+                	Abestia autatutakoAbestiBerria=erreprodukzio.aurrekoKantara();
                 	String infoS="Abestia: "+erreprodukzio.getAbesti()+"\n | Albuma: "+selectedAlbum.getIzenburua()+"\n | Iraupena: "+autatutakoAbestiBerria.getIraupena();
 					tFinfo.setText(infoS);
                     azkenKlika = tiempoActual;
@@ -176,9 +195,9 @@ public class errepAbesti extends JFrame {
 				 if (tiempoActual - azkenKlika >=10 * 60 * 1000 || dbErrep.premiumDa(logData.getLogeatuta())==true) {
 					 
 					 btnPLAYSTOP.setText("PLAY");
-					 errepMetodoak.detenerClip();
+					 errepMetodoak.audioaGelditu();
 					 azkenKlika = tiempoActual;
-	                 Abestiak autatutakoAbestiBerria=erreprodukzio.hurrengoKantara();
+	                 Abestia autatutakoAbestiBerria=erreprodukzio.hurrengoKantara();
 	                 ImageIcon icon = null;	
 	                	try {
 	                        icon = new ImageIcon(dbErrep.irudiaLortu(erreprodukzio.getAbesti()).getBytes(1, (int) dbErrep.irudiaLortu(erreprodukzio.getAbesti()).length()));
@@ -208,7 +227,6 @@ public class errepAbesti extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				DBerrep dbErrep = new DBerrep();
 				if(dbErrep.gustokoaDu(logData.getLogeatuta(),erreprodukzio.getAbesti())==false) {
-					//Erabiltzailea Gorde behar dugu, hemen sartzeko
 					dbErrep.insertatuGustokoa(logData.getLogeatuta(),erreprodukzio.getAbesti());
 					JOptionPane.showMessageDialog(errepAbesti.this,"Ondo gordeta","", JOptionPane.WARNING_MESSAGE);
 				}else {
@@ -220,5 +238,20 @@ public class errepAbesti extends JFrame {
 		});
 		btnNewButton_4.setBounds(684, 376, 116, 23);
 		contentPane.add(btnNewButton_4);
+		
+		tFDenbora = new JTextField();
+		tFDenbora.setHorizontalAlignment(SwingConstants.CENTER);
+		tFDenbora.setEditable(false);
+		tFDenbora.setBounds(453, 345, 86, 20);
+		contentPane.add(tFDenbora);
+		tFDenbora.setColumns(10);
+		
+		 ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+	        scheduler.scheduleAtFixedRate(() -> {
+	           
+	            SwingUtilities.invokeLater(() -> {
+	             tFDenbora.setText(Erabilgarriak.lortuDenboraMinutuetan(errepMetodoak.kantaDaramatzanSeg()));
+	            });
+	        }, 0, 1, TimeUnit.SECONDS);	
 	}
 }

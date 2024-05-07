@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import DB.DBuser;
+import Modelo.logeazioDatuak;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -20,15 +20,11 @@ public class MenuAukeraketa extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 
 	/**
 	 * Create the frame.
 	 */
-	public MenuAukeraketa(DBuser db) {
-		setResizable(false);
+	public MenuAukeraketa(logeazioDatuak logData) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -44,47 +40,27 @@ public class MenuAukeraketa extends JFrame {
 		contentPane.add(lblAukeratu);
 		
 		JButton btnAtzera = new JButton("Atzera");
-		btnAtzera.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-
-				login frame = new login();
-				frame.setVisible(true);
-			
-			}
-		});
 		btnAtzera.setBounds(24, 23, 89, 23);
 		contentPane.add(btnAtzera);
 		
 		JButton btnErabiltzaile = new JButton("");
-		//Logeatutako erabiltzailea botoian ipintzeko
-		btnErabiltzaile.setText(db.getLogeatuta());
-		btnErabiltzaile.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnErabiltzaile.setBounds(316, 23, 89, 23);
 		contentPane.add(btnErabiltzaile);
 		
 		JButton btnNirePlaylist = new JButton("Nire Playlist-ak");
-		btnNirePlaylist.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				try {
-					playListMenu frame = new playListMenu(db);
-					frame.setVisible(true);
-				} catch (Exception e3) {
-					e3.printStackTrace();
-				}
-				
-			}
-		});
 		btnNirePlaylist.setBounds(131, 201, 183, 23);
 		contentPane.add(btnNirePlaylist);
 		
 		JButton btnPodcastDesk = new JButton("Podcastak deskubritu");
 		btnPodcastDesk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				try {
+					PodcasterrakDeskubritu frame = new PodcasterrakDeskubritu();
+					frame.setVisible(true);
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
 			}
 		});
 		btnPodcastDesk.setBounds(131, 154, 183, 23);
@@ -93,7 +69,30 @@ public class MenuAukeraketa extends JFrame {
 		JButton btnMusikaDesk = new JButton("Musika deskubritu");
 		btnMusikaDesk.setBounds(131, 106, 183, 23);
 		contentPane.add(btnMusikaDesk);
+		
+		btnMusikaDesk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				try {
+					MusikaDeskubritu frame = new MusikaDeskubritu(logData);
+					frame.setVisible(true);
+				}catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+		});
+		
 	}
 
-}
+
+	
+	
+	}
+		
+		
+		
+		
+	
+
+	
 

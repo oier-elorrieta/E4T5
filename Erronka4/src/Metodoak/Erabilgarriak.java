@@ -86,5 +86,13 @@ public class Erabilgarriak {
 
 		return new String(password1).equals(new String(password2));
 	}
+	
+	 public static String lortuDenboraMinutuetan(int segundo) {
+	        int minutos = segundo / 60;
+	        int segundosRestantes = segundo % 60;
+	        
+	        String denboraOndo = minutos + " : " + segundosRestantes;
 
+	        return denboraOndo;
+	    }
 }

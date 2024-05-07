@@ -2,65 +2,63 @@ package Modelo;
 
 import java.util.Objects;
 
+import com.mysql.cj.jdbc.Blob;
+
 public class Abestia {
-	private int idMusikari;
-	private int idAudio;
-	private int iraupena;
-	private String izenburua;
 
-	// KONSTRUKTOREA //
-	
-	public Abestia(int idMusikari, int idAudio, int iraupena, String izenburua) {
-		this.idMusikari = idMusikari;
-		this.idAudio = idAudio;
-		this.iraupena = iraupena;
-		this.izenburua = izenburua;
-	}
-	
+    private int IdAudio;
+    private String Iraupena;
+    private String Izenburua;
+    private Blob irudia;
+    // KONSTRUKTOREA //
+    
+    public Abestia( int idAudio, String iraupena, String izenburua, Blob irudia) {
+        IdAudio = idAudio;
+        Iraupena = iraupena;
+        Izenburua = izenburua;
+        this.irudia = irudia;
+    }
 
-	// GETTERS AND SETTERS //
-	
+    // GETTERRAK ETA SETTERRAK //
 
-	public int getIdmusikari() {
-		return idMusikari;
-	}
+    public int getIdAudio() {
+        return IdAudio;
+    }
 
+    public void setIdAudio(int idAudio) {
+        IdAudio = idAudio;
+    }
 
-	public void setIdmusikari(int idMusikari) {
-		this.idMusikari = idMusikari;
-	}
+    public String getIraupena() {
+        return Iraupena;
+    }
 
+    public void setIraupena(String iraupena) {
+        Iraupena = iraupena;
+    }
 
-	public int getIdaudio() {
-		return idAudio;
-	}
+    public String getIzenburua() {
+        return Izenburua;
+    }
 
-
-	public void setIdaudio(int idAudio) {
-		this.idAudio = idAudio;
-	}
-
-
-	public int getIraupena() {
-		return iraupena;
-	}
-
-
-	public void setIraupena(int iraupena) {
-		this.iraupena = iraupena;
+    public void setIzenburua(String izenburua) {
+        Izenburua = izenburua;
+    }
+    
+     public Blob getIrudia() {
+		return irudia;
 	}
 
-
-	public String getIzenburua() {
-		return izenburua;
+	public void setIrudia(Blob irudia) {
+		this.irudia = irudia;
 	}
 
-
-	public void setIzenburua(String izenburua) {
-		this.izenburua = izenburua;
-	}
-
-	// EQUALS //
+    // TOSTRING //
+    
+	@Override
+    public String toString() {
+        return "Izenburua=" + Izenburua +" | Iraupena=" + Iraupena ;
+    }
 
 	@Override
 	public boolean equals(Object obj) {
@@ -71,15 +69,27 @@ public class Abestia {
 		if (getClass() != obj.getClass())
 			return false;
 		Abestia other = (Abestia) obj;
-		return idAudio == other.idAudio && idMusikari == other.idMusikari && iraupena == other.iraupena
-				&& Objects.equals(izenburua, other.izenburua);
+		if (IdAudio != other.IdAudio)
+			return false;
+		if (Iraupena == null) {
+			if (other.Iraupena != null)
+				return false;
+		} else if (!Iraupena.equals(other.Iraupena))
+			return false;
+		if (Izenburua == null) {
+			if (other.Izenburua != null)
+				return false;
+		} else if (!Izenburua.equals(other.Izenburua))
+			return false;
+		if (irudia == null) {
+			if (other.irudia != null)
+				return false;
+		} else if (!irudia.equals(other.irudia))
+			return false;
+		return true;
 	}
 
-	// TOSTRING //
-	@Override
-	public String toString() {
-		return "Abestia [Idmusikari=" + idMusikari + ", IdAudio=" + idAudio + ", Iraupena=" + iraupena + ", Izenburua="
-				+ izenburua + "]";
-	}
+	
+
 
 }

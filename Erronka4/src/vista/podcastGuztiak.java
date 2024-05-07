@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import Modelo.Albumak;
+import Modelo.Albuma;
 import Modelo.Musikaria;
 import Modelo.Podcast;
 import Modelo.Podcasterra;

@@ -23,12 +23,12 @@ public class TestPremium {
 	
 	@Test
 	public void TestGetPremiumMuga(){
-		assertEquals("2025-04-18", p1.getPremiumMuga());
+		assertEquals("2025-04-18", p1.getPremiunMuga());
 	}
 	@Test
 	public void TestSetpremiumMuga(){
-		p1.setPremiumMuga("2026-08-09");
-		assertEquals("2026-08-09", p1.getPremiumMuga());
+		p1.setPremiunMuga("2026-08-09");
+		assertEquals("2026-08-09", p1.getPremiunMuga());
 	}
 	
 	// TOSTRING TESTAK //
@@ -37,7 +37,7 @@ public class TestPremium {
 	public void testToString() {
 		String TxtFree = p1.toString();
 			String esperatutakoaPremium = "Erabiltzaile [Izena=" + p1.getIzena() + ", Abizena=" + p1.getAbizena() + ", Erabiltzailea="
-					+ p1.getErabiltzailea() + ", Pasahitza=" + p1.getPasahitza() + ", Jaiotze_data=" + p1.getJaiotze_data() + "Premiun [premiunMuga=" + p1.getPremiumMuga() + "]";
+					+ p1.getErabiltzailea() + ", Pasahitza=" + p1.getPasahitza() + ", Jaiotze_data=" + p1.getJaiotze_data() + "Premiun [premiunMuga=" + p1.getPremiunMuga() + "]";
 		}
 		
 	//EQUALS TESTAK//

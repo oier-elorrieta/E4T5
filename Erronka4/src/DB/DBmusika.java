@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 import com.mysql.cj.jdbc.Blob;
 
-import Modelo.Abestiak;
-import Modelo.Albumak;
+import Modelo.Abestia;
+import Modelo.Albuma;
 import Modelo.Musikaria;
 
 public class DBmusika {
@@ -39,13 +39,13 @@ public class DBmusika {
 		return ArtistaLIst;
 	}
 	
-	public ArrayList<Albumak> Albumlist(String aukeratutakoArtista) {
+	public ArrayList<Albuma> Albumlist(String aukeratutakoArtista) {
 		Konexioa konexioa2 = new Konexioa();
 		Connection konexioa = konexioa2.konektatu();
 		ResultSet rs;
 		Statement stm;
 		
-		ArrayList<Albumak> AlbumList = new ArrayList<>();
+		ArrayList<Albuma> AlbumList = new ArrayList<>();
 		
 		try {
 			
@@ -57,7 +57,7 @@ public class DBmusika {
 				String izenburua = rs.getString("izenburua");
 				int urtea = rs.getInt(2);
 				int abestiKop = rs.getInt(3);
-				Albumak album = new Albumak(izenburua, urtea, abestiKop, rs.getString("generoa"));
+				Albuma album = new Albuma(izenburua, urtea, abestiKop, rs.getString("generoa"));
 				AlbumList.add(album);
 			}
 
@@ -70,10 +70,10 @@ public class DBmusika {
 		return AlbumList;
 	}
 
-	public ArrayList<Abestiak> lortuAbestiak(String selectedAlbum){
+	public ArrayList<Abestia> lortuAbestiak(String selectedAlbum){
 		Konexioa konexioa2 = new Konexioa();
 		Connection konexioa = konexioa2.konektatu();
-		ArrayList<Abestiak> abestiList = new ArrayList<>();
+		ArrayList<Abestia> abestiList = new ArrayList<>();
 		System.out.println(selectedAlbum);
 		try {
 				String kontsulta = "select * \r\n"
@@ -85,7 +85,7 @@ public class DBmusika {
 			ResultSet rs = stm.executeQuery(kontsulta);
 
 			while (rs.next()) {
-				Abestiak abesti = new Abestiak(rs.getInt("idAudio"),rs.getString("iraupena"),rs.getString("izena"),(Blob) rs.getBlob("irudia"));
+				Abestia abesti = new Abestia(rs.getInt("idAudio"),rs.getString("iraupena"),rs.getString("izena"),(Blob) rs.getBlob("irudia"));
 				abestiList.add(abesti);
 				System.out.println(abesti);
 			}

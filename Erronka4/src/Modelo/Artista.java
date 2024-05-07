@@ -2,29 +2,31 @@ package Modelo;
 
 import java.util.Objects;
 
+import com.mysql.cj.jdbc.Blob;
+
 public abstract class Artista {
-	protected int idArtista;
 	protected String izenaArtistikoa;
 	protected String deskribapena;
+	protected Blob irudia;
 
-	public Artista(int idartista, String izenaartistikoa, String deskribapena) {
-		this.idArtista = idartista;
+	public Artista(String izenaartistikoa, String deskribapena, java.sql.Blob blob) {
+		this.irudia = (Blob) blob;
 		this.izenaArtistikoa = izenaartistikoa;
 		this.deskribapena = deskribapena;
 	}
 
 // GETTERS AND SETTERS
 
-	public int getIdartista() {
-		return idArtista;
-	}
-
-	public void setIdartista(int idartista) {
-		this.idArtista = idartista;
-	}
-
 	public String getIzenaartistikoa() {
 		return izenaArtistikoa;
+	}
+
+	public Blob getIrudia() {
+		return irudia;
+	}
+
+	public void setIrudia(Blob irudia) {
+		this.irudia = irudia;
 	}
 
 	public void setIzenaartistikoa(String izenaartistikoa) {
@@ -48,7 +50,7 @@ public abstract class Artista {
 		if (getClass() != obj.getClass())
 			return false;
 		Artista other = (Artista) obj;
-		return Objects.equals(deskribapena, other.deskribapena) && idArtista == other.idArtista
+		return Objects.equals(deskribapena, other.deskribapena)
 				&& Objects.equals(izenaArtistikoa, other.izenaArtistikoa);
 	}
 

@@ -1,5 +1,7 @@
 package Modelo;
 
+
+
 public class Albuma {
 	protected int idAlbum;
 	protected String izenburua;
@@ -8,12 +10,28 @@ public class Albuma {
 	protected int idArtista;
 	protected int abestiKop;
 
+	public Albuma(String izenburua, int urtea, int abestiKop, String generoa) {
+		this.izenburua = izenburua;
+		this.urtea = urtea;
+		this.abestiKop = abestiKop;
+		this.generoa = generoa;
+	}
+	
 	public Albuma(int idAlbum, String izenburua, int urtea, String generoa, int idArtista, int abestiKop) {
+		super();
 		this.idAlbum = idAlbum;
 		this.izenburua = izenburua;
 		this.urtea = urtea;
 		this.generoa = generoa;
 		this.idArtista = idArtista;
+		this.abestiKop = abestiKop;
+	}
+
+	public int getAbestiKop() {
+		return abestiKop;
+	}
+
+	public void setAbestiKop(int abestiKop) {
 		this.abestiKop = abestiKop;
 	}
 
@@ -57,18 +75,12 @@ public class Albuma {
 		this.idArtista = idArtista;
 	}
 
-	public int getAbestiKop() {
-		return abestiKop;
-	}
-
-	public void setAbestiKop(int abestiKop) {
-		this.abestiKop = abestiKop;
-	}
 
 	@Override
 	public String toString() {
-		return izenburua + " | " + urtea + " | Abesti kopurua:" + abestiKop;
+		return izenburua + " | " + urtea + " | Abesti kopurua:" + abestiKop ;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -77,6 +89,21 @@ public class Albuma {
 		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
+			return false;
+		Albuma other = (Albuma) obj;
+		if (generoa == null) {
+			if (other.generoa != null)
+				return false;
+		} else if (!generoa.equals(other.generoa))
+			return false;
+		if (idAlbum != other.idAlbum)
+			return false;
+		if (idArtista != other.idArtista)
+			return false;
+		if (izenburua == null) {
+			if (other.izenburua != null)
+				return false;
+		} else if (!izenburua.equals(other.izenburua))
 			return false;
 		return false;
 	}

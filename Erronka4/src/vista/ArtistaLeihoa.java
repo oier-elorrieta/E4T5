@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import Modelo.Albumak;
+import Modelo.Albuma;
 import Modelo.Musikaria;
 import Modelo.logeazioDatuak;
 
@@ -38,7 +38,7 @@ public class ArtistaLeihoa extends JFrame {
 	 */
 	public ArtistaLeihoa(logeazioDatuak logData,Musikaria musikari) {
 		DB.DBmusika dbMusika = new DB.DBmusika();
-        ArrayList<Albumak> Albumlist = dbMusika.Albumlist(musikari.getIzenaartistikoa());
+        ArrayList<Albuma> Albumlist = dbMusika.Albumlist(musikari.getIzenaartistikoa());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 804, 474);

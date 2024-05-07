@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import DB.DBmusika;
-import Modelo.Abestiak;
-import Modelo.Albumak;
+import Modelo.Abestia;
+import Modelo.Albuma;
 import Modelo.logeazioDatuak;
 
 import javax.swing.JButton;
@@ -33,10 +33,10 @@ public class AlbumLeihoa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AlbumLeihoa(logeazioDatuak logData,Albumak selectedAlbum) {
+	public AlbumLeihoa(logeazioDatuak logData,Albuma selectedAlbum) {
 		DB.DBmusika dbMusika = new DBmusika();
 		
-		ArrayList<Abestiak> abestiList = dbMusika.lortuAbestiak(selectedAlbum.getIzenburua()); 
+		ArrayList<Abestia> abestiList = dbMusika.lortuAbestiak(selectedAlbum.getIzenburua()); 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 763, 340);

@@ -8,7 +8,7 @@ import DB.DBerrep;
 
 public class Erreprodukzio {
 	
-	private ArrayList<Abestiak> abestiList;
+	private ArrayList<Abestia> abestiList;
 	private int posizioa;
 	
 	public Erreprodukzio(String selectedAlbum, String selectedAbestia) {
@@ -25,7 +25,7 @@ public class Erreprodukzio {
 		}
 	}
 	
-	public Abestiak hurrengoKantara() {
+	public Abestia hurrengoKantara() {
 		if(abestiList.size()-1!=posizioa) {
 			this.posizioa=posizioa+1;
 			System.out.println(posizioa);
@@ -33,7 +33,7 @@ public class Erreprodukzio {
 		return abestiList.get(posizioa);
 	}
 
-	public Abestiak aurrekoKantara() {
+	public Abestia aurrekoKantara() {
 		if(this.posizioa!=0) {
 			this.posizioa=this.posizioa-1;
 			System.out.println(posizioa);
@@ -53,11 +53,11 @@ public class Erreprodukzio {
 		return abestiList.get(posizioa).getIzenburua();
 	}
 	
-	public ArrayList<Abestiak> getAbestiList() {
+	public ArrayList<Abestia> getAbestiList() {
 		return abestiList;
 	}
 
-	public void setAbestiList(ArrayList<Abestiak> abestiList) {
+	public void setAbestiList(ArrayList<Abestia> abestiList) {
 		this.abestiList = abestiList;
 	}
 
