@@ -6,7 +6,7 @@ import org.junit.Test;
 import Modelo.Musikaria;
 
 public class TestMusikaria {
-	
+
 	// SETUP BAT TESTAK EGITEKO //
 
 	static Musikaria m1;

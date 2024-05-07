@@ -5,46 +5,48 @@ import java.util.Objects;
 
 public class Premium extends Erabiltzaile {
 
-    private String premiumMuga;
+	private String premiumMuga;
 
-    // KONSTRUKTOREA erabiltzailetik ere atributuak hartzen ditu //
-    public Premium(String izena, String abizena, String erabiltzailea, String pasahitza,
-            String jaiotze_data, String premiunMuga) {
-        
-        super(izena, abizena, erabiltzailea, pasahitza, jaiotze_data);
-        
-        this.premiumMuga = premiunMuga;
-    }
+	// KONSTRUKTOREA erabiltzailetik ere atributuak hartzen ditu //
+	public Premium(String izena, String abizena, String erabiltzailea, String pasahitza, String jaiotze_data,
+			String premiumMuga) {
+		super(izena, abizena, erabiltzailea, pasahitza, jaiotze_data);
+		this.premiumMuga = premiumMuga;
+	}
+ 
+	// GETTERRAK ETA SETTERRAK // 
+	public String getPremiumMuga() {
+		return premiumMuga;
+	}
 
-    // GETTERRAK ETA SETTERRAK //
-    
-    public String getPremiunMuga() {
-        return premiumMuga;
-    }
 
-    public void setPremiunMuga(String premiunMuga) {
-        this.premiumMuga = premiunMuga;
-    }
 
-    // EQUALS //
-    
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Premium other = (Premium) obj;
-        return Objects.equals(premiumMuga, other.premiumMuga);
-    }
+	public void setPremiumMuga(String premiumMuga) {
+		this.premiumMuga = premiumMuga;
+	}
+	
 
-    // TOSTRING //
-    
-    @Override
-    public String toString() {
-        return "Erabiltzaile[ Izena=" + Izena + ", Abizena=" + Abizena + ", Erabiltzailea="
-                + Erabiltzailea + ", Pasahitza=" + Pasahitza + ", Jaiotze_data=" + Jaiotze_data + "Premiun [premiunMuga=" + premiumMuga + "]";
-    }
+	// EQUALS //
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Premium other = (Premium) obj;
+		return Objects.equals(premiumMuga, other.premiumMuga);
+	}
+	
+	// TOSTRING //
+	@Override
+	public String toString() {
+		return "Erabiltzaile [Izena=" + izena + ", Abizena=" + abizena + ", Erabiltzailea="
+				+ erabiltzailea + ", Pasahitza=" + pasahitza + ", Jaiotze_data=" + jaiotze_data + "Premiun [premiunMuga=" + premiumMuga + "]";
+	}
+
+	
+
+	
 }
