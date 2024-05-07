@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import DB.DBuser;
 import Modelo.Musikaria;
 import Modelo.logeazioDatuak;
 
@@ -26,7 +28,7 @@ public class MusikaDeskubritu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MusikaDeskubritu(logeazioDatuak logData) {
+	public MusikaDeskubritu(DBuser logData) {
 		 DB.DBmusika dbMusika = new DB.DBmusika();
 
 		ArrayList<Musikaria> artistalist = dbMusika.musikaDeskrubitu();
@@ -67,7 +69,7 @@ public class MusikaDeskubritu extends JFrame {
 			}
 		});
 		
-		
+	
 		
 		JComboBox cbArtistak = new JComboBox();
 		cbArtistak.setBounds(10, 70, 242, 23);

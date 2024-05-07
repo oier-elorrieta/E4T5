@@ -1,16 +1,15 @@
 package Modelo;
 
+import java.sql.Blob;
 import java.util.Objects;
 
-import com.mysql.cj.jdbc.Blob;
 
 public abstract class Artista {
 	protected String izenaArtistikoa;
 	protected String deskribapena;
-	protected Blob irudia;
+	protected Blob Irudia;
 
-	public Artista(String izenaartistikoa, String deskribapena, java.sql.Blob blob) {
-		this.irudia = (Blob) blob;
+	public Artista( String izenaartistikoa, String deskribapena, Blob blob) {
 		this.izenaArtistikoa = izenaartistikoa;
 		this.deskribapena = deskribapena;
 	}
@@ -19,14 +18,6 @@ public abstract class Artista {
 
 	public String getIzenaartistikoa() {
 		return izenaArtistikoa;
-	}
-
-	public Blob getIrudia() {
-		return irudia;
-	}
-
-	public void setIrudia(Blob irudia) {
-		this.irudia = irudia;
 	}
 
 	public void setIzenaartistikoa(String izenaartistikoa) {
@@ -50,8 +41,7 @@ public abstract class Artista {
 		if (getClass() != obj.getClass())
 			return false;
 		Artista other = (Artista) obj;
-		return Objects.equals(deskribapena, other.deskribapena)
-				&& Objects.equals(izenaArtistikoa, other.izenaArtistikoa);
+		return Objects.equals(deskribapena, other.deskribapena) && Objects.equals(izenaArtistikoa, other.izenaArtistikoa);
 	}
 
 	@Override

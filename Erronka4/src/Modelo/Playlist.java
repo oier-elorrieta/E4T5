@@ -10,6 +10,7 @@ public class Playlist {
     
     // KONTRUKTOREA //
     public Playlist(int idList, String izenburua, Date sorrera_data) {
+		super();
 		this.idList = idList;
 		this.izenburua = izenburua;
 		this.sorrera_data = sorrera_data;

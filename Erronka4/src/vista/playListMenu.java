@@ -5,12 +5,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import DB.DBuser;
+import Modelo.logeazioDatuak;
 
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class playListMenu extends JFrame {
 
@@ -27,30 +29,18 @@ public class playListMenu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		
+		JButton btnPlaylistBerria = new JButton("Berria Sortu");
+		btnPlaylistBerria.setBounds(312, 37, 112, 43);
+		btnPlaylistBerria.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		contentPane.setLayout(null);
-		
-		JLabel lblPlaylistMenua = new JLabel("PlayList Menua\r\n");
-		lblPlaylistMenua.setFont(new Font("Times New Roman", Font.BOLD, 33));
-		lblPlaylistMenua.setBounds(96, 55, 223, 39);
-		contentPane.add(lblPlaylistMenua);
-		
-		JButton btnPlaylistKudeatu = new JButton("Nire PlayList-ak kudeatu");
-		btnPlaylistKudeatu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnPlaylistKudeatu.setBounds(124, 116, 160, 23);
-		contentPane.add(btnPlaylistKudeatu);
-		
-		JButton btnPlaylistKudeatu_1 = new JButton("Nire PlayList-ak kudeatu");
-		btnPlaylistKudeatu_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnPlaylistKudeatu_1.setBounds(124, 157, 160, 23);
-		contentPane.add(btnPlaylistKudeatu_1);
+		contentPane.add(btnPlaylistBerria);
 		
 		JButton btnAtzera = new JButton("Atzera");
+		btnAtzera.setBounds(10, 11, 89, 23);
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -63,7 +53,22 @@ public class playListMenu extends JFrame {
 			
 			}
 		});
-		btnAtzera.setBounds(24, 23, 89, 23);
 		contentPane.add(btnAtzera);
+		
+		JButton btnPlaylistEzabatu = new JButton("Ezabatu");
+		btnPlaylistEzabatu.setBounds(312, 91, 112, 43);
+		contentPane.add(btnPlaylistEzabatu);
+		
+		JButton btnPlaylistInportatu = new JButton("Inportatu");
+		btnPlaylistInportatu.setBounds(312, 147, 112, 43);
+		contentPane.add(btnPlaylistInportatu);
+		
+		JButton btnPlaylistExportatu = new JButton("Exportatu");
+		btnPlaylistExportatu.setBounds(312, 207, 112, 43);
+		contentPane.add(btnPlaylistExportatu);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(20, 47, 255, 22);
+		contentPane.add(comboBox);
 	}
 }

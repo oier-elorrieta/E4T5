@@ -16,10 +16,10 @@ public class ErrepMetodoak {
     private Clip clip;
 
     public void erreproduzitu(String selectedAudioName) {
-        String bidea = "C:\\Users\\in1dm3-d\\Desktop\\AUDIOS";
-        String errutaOsoa = Paths.get(bidea, selectedAudioName + ".wav").toString();
+        String erruta = "C:\\Users\\in1dm3-d\\Desktop\\AUDIOS";
+        String errutaOsoa = Paths.get(erruta, selectedAudioName + ".wav").toString();
         
-        audioaGelditu();
+        detenerClip();
         
         try {
             this.clip = AudioSystem.getClip();
@@ -31,31 +31,10 @@ public class ErrepMetodoak {
         }
     }
     
-    public void audioaGelditu() {
+    public void detenerClip() {
         if (this.clip != null && this.clip.isRunning()) {
             this.clip.stop();
             this.clip.close();
         }
     }
-    
-    public int kantaDaramatzanSeg() {
-    	int luzaera;
-        if (this.clip != null && this.clip.isRunning()) {
-            long microsegundos = this.clip.getMicrosecondPosition();
-            luzaera =  (int) (microsegundos / 1_000_000); 
-        } else {
-        	luzaera=0; 
-        }
-        return luzaera;
-    }
-
-	public boolean erreproduzitzenDago() {
-		boolean erreproduzitzen=false;
-		
-		if(this.clip.isRunning()) {
-			erreproduzitzen=true;
-		}
-		
-		return erreproduzitzen;
-	}
 }

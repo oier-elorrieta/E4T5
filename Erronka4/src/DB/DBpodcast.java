@@ -21,7 +21,7 @@ public class DBpodcast {
 		konexioa2.konektatu();
 		Statement stm;
 		ResultSet rs;
-
+		
 		try {
 			String kontsulta = "SELECT * FROM db_spotify5.podcaster join podcast using(idPodcaster) join audioa using(idAudio) where izenArtistikoa = '"
 					+ selectedPodcaster + "'";

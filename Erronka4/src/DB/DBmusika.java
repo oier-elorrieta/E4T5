@@ -31,7 +31,7 @@ public class DBmusika {
 				Musikaria musikaria = new Musikaria(rs.getString("IzenArtistikoa"),rs.getString("deskribapena"),rs.getBlob("irudia") );
 				ArtistaLIst.add(musikaria);
 			}
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -23,6 +23,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.JComboBox;
 import java.awt.Color;
 import javax.swing.border.EtchedBorder;
+
+import DB.DBuser;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
 import javax.swing.JScrollBar;
@@ -36,7 +39,7 @@ public class ArtistaLeihoa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ArtistaLeihoa(logeazioDatuak logData,Musikaria musikari) {
+	public ArtistaLeihoa(DBuser logData,Musikaria musikari) {
 		DB.DBmusika dbMusika = new DB.DBmusika();
         ArrayList<Albuma> Albumlist = dbMusika.Albumlist(musikari.getIzenaartistikoa());
 		

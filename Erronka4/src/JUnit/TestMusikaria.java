@@ -6,38 +6,27 @@ import org.junit.Test;
 import Modelo.Musikaria;
 
 public class TestMusikaria {
-	
+
 	// SETUP BAT TESTAK EGITEKO //
 
 	static Musikaria m1;
 
 	@Before
 	public void setUp() throws Exception {
-		m1 = new Musikaria(1, "izenArtistikoa", "deskribapena", 1);
+		m1 = new Musikaria("izenArtistikoa", "deskribapena", null);
 	}
 
 	// GETTERRAK ETA SETTERRAK TESTAK //
 
 	@Test
-	public void testGetIdArtista() {
-		assertEquals(1, m1.getIdartista());
+	public void testGetIzenArtistikoa() {
+		assertEquals("izenArtistikoa", m1.getIzenaartistikoa());
 	}
 
 	@Test
-	public void testSetIdArtista() {
-		m1.setIdartista(0);
-		assertEquals(0, m1.getIdartista());
-	}
-
-	@Test
-	public void testGetIdMusikari() {
-		assertEquals(1, m1.getMusikariaID());
-	}
-
-	@Test
-	public void testSetIdMusikari() {
-		m1.setMusikariaID(0);
-		assertEquals(0, m1.getMusikariaID());
+	public void testSetIzenArtistikoa() {
+		m1.setIzenaartistikoa("Rosalia");
+		assertEquals("Rosalia", m1.getIzenaartistikoa());
 	}
 
 	@Test
@@ -56,8 +45,7 @@ public class TestMusikaria {
 	@Test
 	public void testToString() {
 		String txtMusikaria = m1.toString();
-		String esperatutakoArtista = "Musikaria [musikariaID=" + m1.getMusikariaID() + ", idArtista="
-				+ m1.getIdartista() + ", izenaArtistikoa=" + m1.getIzenaartistikoa() + ", deskribapena="
+		String esperatutakoArtista = "Musikaria [izenaArtistikoa=" + m1.getIzenaartistikoa() + ", deskribapena="
 				+ m1.getDeskribapena() + "]";
 		;
 	}
@@ -82,7 +70,7 @@ public class TestMusikaria {
 
 	@Test
 	public void TestEquals() {
-		Musikaria m2 = new Musikaria(1, "izenArtistikoa", "deskribapena", 1);
+		Musikaria m2 = new Musikaria("izenArtistikoa", "deskribapena", null);
 		assertTrue(m1.equals(m2));
 	}
 
