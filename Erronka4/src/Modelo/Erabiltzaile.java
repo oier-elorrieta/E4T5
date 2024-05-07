@@ -1,83 +1,89 @@
 package Modelo;
 
+import java.util.Date;
 import java.util.Objects;
 
 public abstract class Erabiltzaile {
 
-	protected String izena;
-	protected String abizena;
-	protected String erabiltzailea;
-	protected String pasahitza;
-	protected String jaiotze_data;
+    protected String Izena;
+    protected String Abizena;
+    protected String Erabiltzailea;
+    protected String Pasahitza;
+    protected String Jaiotze_data;
+    
+    // KONSTRUKTOREA //
+    
+    public Erabiltzaile( String izena, String abizena, String erabiltzailea, String pasahitza, String jaiotze_data) {
+        Izena = izena;
+        Abizena = abizena;
+        Erabiltzailea = erabiltzailea;
+        Pasahitza = pasahitza;
+        Jaiotze_data = jaiotze_data;
+    }
 
-	public Erabiltzaile(String izena, String abizena, String erabiltzailea, String pasahitza, String jaiotze_data) {
+    // GETTERRAK ETA SETTERRAK // 
 
-		this.izena = izena;
-		this.abizena = abizena;
-		this.erabiltzailea = erabiltzailea;
-		this.pasahitza = pasahitza;
-		this.jaiotze_data = jaiotze_data;
-	}
+    public String getIzena() {
+        return Izena;
+    }
 
-	public String getIzena() {
-		return izena;
-	}
+    public void setIzena(String izena) {
+        Izena = izena;
+    }
 
-	public void setIzena(String izena) {
-		this.izena = izena;
-	}
+    public String getAbizena() {
+        return Abizena;
+    }
 
-	public String getAbizena() {
-		return abizena;
-	}
+    public void setAbizena(String abizena) {
+        Abizena = abizena;
+    }
 
-	public void setAbizena(String abizena) {
-		this.abizena = abizena;
-	}
+    public String getErabiltzailea() {
+        return Erabiltzailea;
+    }
 
-	public String getErabiltzailea() {
-		return erabiltzailea;
-	}
+    public void setErabiltzailea(String erabiltzailea) {
+        Erabiltzailea = erabiltzailea;
+    }
 
-	public void setErabiltzailea(String erabiltzailea) {
-		this.erabiltzailea = erabiltzailea;
-	}
+    public String getPasahitza() {
+        return Pasahitza;
+    }
 
-	public String getPasahitza() {
-		return pasahitza;
-	}
+    public void setPasahitza(String pasahitza) {
+        Pasahitza = pasahitza;
+    }
+    public String getJaiotze_data() {
+        return Jaiotze_data;
+    }
+    public void setJaiotze_data(String jaiotze_data) {
+        Jaiotze_data = jaiotze_data;
+    }
+    
+    // TOSTRING //
+    
+    @Override
+    public String toString() {
+        return "Erabiltzaile Izena=" + Izena + ", Abizena=" + Abizena + ", Erabiltzailea="
+                + Erabiltzailea + ", Pasahitza=" + Pasahitza + ", Jaiotze_data=" + Jaiotze_data + "]";
+    }
+    
+    // EQUALS //
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Erabiltzaile other = (Erabiltzaile) obj;
+        return Objects.equals(Abizena, other.Abizena) && Objects.equals(Erabiltzailea, other.Erabiltzailea)
+                 && Objects.equals(Jaiotze_data, other.Jaiotze_data) && Objects.equals(Pasahitza, other.Pasahitza)
+                 && Objects.equals(Izena, other.Izena);
 
-	public void setPasahitza(String pasahitza) {
-		this.pasahitza = pasahitza;
-	}
-
-	public String getJaiotze_data() {
-		return jaiotze_data;
-	}
-
-	public void setJaiotze_data(String jaiotze_data) {
-		this.jaiotze_data = jaiotze_data;
-	}
-
-	@Override
-	public String toString() {
-		return "Erabiltzaile [izena=" + izena + ", abizena=" + abizena + ", erabiltzailea=" + erabiltzailea
-				+ ", pasahitza=" + pasahitza + ", jaiotze_data=" + jaiotze_data + "]";
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Erabiltzaile other = (Erabiltzaile) obj;
-		return Objects.equals(abizena, other.abizena) && Objects.equals(erabiltzailea, other.erabiltzailea)
-				&& Objects.equals(pasahitza, other.pasahitza) && Objects.equals(izena, other.izena)
-				&& Objects.equals(jaiotze_data, other.jaiotze_data);
-
-	}
+    }
 
 }
