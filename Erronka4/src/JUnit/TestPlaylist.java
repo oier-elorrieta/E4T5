@@ -16,8 +16,7 @@ public class TestPlaylist {
 	static Playlist pl1;
 	@Before
 	public void setUp() throws Exception {
-	Date Sorrera_data = new Date(2018, 04, 18);
-	pl1 = new Playlist(1,"Izenburua",Sorrera_data);
+	pl1 = new Playlist(1,"Izenburua","2024");
 	}
 	
 	// GETTERS ETA SETTERS TESTAK //
@@ -45,15 +44,13 @@ public class TestPlaylist {
 	}
 	@Test
 	public void testGetSorreraData() {
-		Date Sorrera_data = new Date(2018, 04, 18);
-		assertEquals(Sorrera_data, pl1.getSorrera_data());
+		assertEquals("2024", pl1.getSorrera_data());
 	}
 
 	@Test
 	public void testSetSorreraData() {
-		Date Sorrera_data1 = new Date(2013, 04, 18);
-		pl1.setSorrera_data(Sorrera_data1);
-		assertEquals(Sorrera_data1, pl1.getSorrera_data());
+		pl1.setSorrera_data("2023");
+		assertEquals("2023", pl1.getSorrera_data());
 	}
 	
 	// TOSTRING TESTAK //
@@ -61,7 +58,7 @@ public class TestPlaylist {
 	@Test
 	public void testtoString() {
 		String txtPlaylist = pl1.toString();
-		String esperotakoaPlaylist = "Playlistak [IdList=" + pl1.getIdlist() + ", Izenburua=" + pl1.getIzenburua() + ", Sorrera_data=" + pl1.getSorrera_data() + "]";
+		String esperotakoaPlaylist = pl1.getIzenburua();
 	}
 	
 	//EQUALS TEST//
@@ -84,7 +81,7 @@ public class TestPlaylist {
 		@Test
 		public void TestEquals(){
 			Date Sorrera_data = new Date(2018, 04, 18);
-		Playlist pl2 = new Playlist(1,"Izenburua",Sorrera_data);
+		Playlist pl2 = new Playlist(1,"Izenburua","2024");
 		assertTrue(pl1.equals(pl2));
 		}
 		

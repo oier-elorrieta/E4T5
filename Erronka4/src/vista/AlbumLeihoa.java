@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import DB.DBmusika;
 import Modelo.Abestia;
 import Modelo.Albuma;
-import Modelo.logeazioDatuak;
+import Modelo.LogeazioDatuak;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -33,7 +33,7 @@ public class AlbumLeihoa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AlbumLeihoa(logeazioDatuak logData,Albuma selectedAlbum) {
+	public AlbumLeihoa(LogeazioDatuak logData,Albuma selectedAlbum) {
 		DB.DBmusika dbMusika = new DBmusika();
 		
 		ArrayList<Abestia> abestiList = dbMusika.lortuAbestiak(selectedAlbum.getIzenburua()); 
@@ -110,19 +110,35 @@ public class AlbumLeihoa extends JFrame {
 		contentPane.add(lblAlbum);
 		lblAlbum.setText(selectedAlbum.getIzenburua());
 		
-		JButton btnNewButton = new JButton("Erreproduzitu");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnErreproduzitu = new JButton("Erreproduzitu");
+		btnErreproduzitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				try {
-					errepAbesti frame = new errepAbesti(logData,abestiList.get(cBAbesti.getSelectedIndex()),selectedAlbum);
+					ErrepAbesti frame = new ErrepAbesti(logData,abestiList.get(cBAbesti.getSelectedIndex()),selectedAlbum);
 					frame.setVisible(true);
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
 			}
 		});
-		btnNewButton.setBounds(10, 261, 120, 23);
-		contentPane.add(btnNewButton);
+		btnErreproduzitu.setBounds(10, 261, 120, 23);
+		contentPane.add(btnErreproduzitu);
+		
+		JButton btnErabiltzaile = new JButton("");
+		btnErabiltzaile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					ErabiltzaileDatuakAldatu frame = new ErabiltzaileDatuakAldatu(logData);
+					frame.setVisible(true);
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+		});
+		btnErabiltzaile.setBounds(584, 11, 153, 23);
+		contentPane.add(btnErabiltzaile);
+		btnErabiltzaile.setText(logData.getLogeatuta());
 	}
 }

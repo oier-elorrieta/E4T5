@@ -5,10 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import DB.DBuser;
 import Modelo.Musikaria;
-import Modelo.logeazioDatuak;
+import Modelo.LogeazioDatuak;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -28,11 +26,12 @@ public class MusikaDeskubritu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MusikaDeskubritu(DBuser logData) {
+	public MusikaDeskubritu(LogeazioDatuak logData) {
 		 DB.DBmusika dbMusika = new DB.DBmusika();
 
 		ArrayList<Musikaria> artistalist = dbMusika.musikaDeskrubitu();
-
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -46,14 +45,6 @@ public class MusikaDeskubritu extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(-12, 47, 288, 23);
 		contentPane.add(lblNewLabel);
-
-		JButton btnErabiltzaile = new JButton("");
-		btnErabiltzaile.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnErabiltzaile.setBounds(335, 13, 89, 23);
-		contentPane.add(btnErabiltzaile);
 
 		JButton btnAtzera = new JButton("Atzera");
 		btnAtzera.setBounds(10, 11, 89, 23);
@@ -69,7 +60,7 @@ public class MusikaDeskubritu extends JFrame {
 			}
 		});
 		
-	
+		
 		
 		JComboBox cbArtistak = new JComboBox();
 		cbArtistak.setBounds(10, 70, 242, 23);
@@ -79,11 +70,24 @@ public class MusikaDeskubritu extends JFrame {
 			cbArtistak.addItem(artistalist.get(i));
 		}
 
-		System.out.println(artistalist);
-
 		JButton btnJarraitu = new JButton("Jarraitu");
 		btnJarraitu.setBounds(335, 197, 89, 23);
 		contentPane.add(btnJarraitu);
+		
+		JButton btnErabiltzailea = new JButton("");
+		btnErabiltzailea.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					ErabiltzaileDatuakAldatu frame = new ErabiltzaileDatuakAldatu(logData);
+					frame.setVisible(true);
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+		});
+		btnErabiltzailea.setBounds(279, 11, 145, 23);
+		contentPane.add(btnErabiltzailea);
+		btnErabiltzailea.setText(logData.getLogeatuta());
 
 		btnJarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

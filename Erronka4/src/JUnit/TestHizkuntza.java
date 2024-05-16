@@ -22,12 +22,12 @@ public class TestHizkuntza {
 		
 		@Test
 		public void testGetHizkuntzaID() {
-			assertEquals("EU", h1.getHizkuntzaid());
+			assertEquals("EU", h1.getHizkuntzaID());
 		}
 		@Test
 		public void testSetHizkuntzaID() {
-			h1.setHizkuntzaid("ES");
-			assertEquals("ES", h1.getHizkuntzaid());
+			h1.setHizkuntzaID("ES");
+			assertEquals("ES", h1.getHizkuntzaID());
 		}
 		@Test
 		public void testGetHizkuntzaDesk() {
@@ -43,7 +43,7 @@ public class TestHizkuntza {
 		@Test
 		public void testToString() {
 			String txtHizkuntza = h1.toString();
-			String esperatutakoHizkuntza =  "hizkuntzaId=" + h1.getHizkuntzaid();
+			String esperatutakoHizkuntza =  "hizkuntzaId=" + h1.getHizkuntzaID();
 					
 		}
 		

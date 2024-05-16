@@ -25,7 +25,7 @@ public class Konexioa {
 	/**
 	 * Datu basera konexioa egiten du
 	 * 
-	 * @return
+	 * @return Connection konexioa
 	 */
 	// Datu-basearekin konexioa egiteko metodoa
 	public  Connection konektatu() {
@@ -38,7 +38,6 @@ public class Konexioa {
 				konexioa = DriverManager.getConnection(this.url, this.erabiltzaile, this.psw);
 			}
 		} catch (SQLException e) {
-			System.out.println("Errorea datu-basearekin konexioa egiten: " + e.getMessage());
 		}
 		
 		return konexioa;
@@ -47,21 +46,16 @@ public class Konexioa {
 	
 	/**
 	 * Datu basetik deskonektatzen da
-	 * 
-	 * @return
 	 */
 	// Datu-basearekin konexioa egiteko metodoa
 	public void deskonektatu() {
 
 		try {
-			// Konexioa deskonektatu, oraindik ez badago
-			if (konexioa != null ) {
-				
-				konexioa.close();
-				System.out.println("Deskonektatuta");		
+			// Konexioa deskonektatu
+			if (konexioa != null ) {		
+				konexioa.close();	
 			}
 		} catch (SQLException e) {
-			System.out.println("Errorea datu-basearekin deskonexioa egiten: " + e.getMessage());
 		}
 	
 	}

@@ -14,7 +14,7 @@ public class TestAbestia {
 	static Abestia ab1;
 	@Before
 	public void setUp() throws Exception {
-	ab1 = new Abestia(1,"200","Izenburua", null); 
+		ab1 = new Abestia(1,"200","Izenburua", null); 
 	}
 	
 	// GETTERS ETA SETTERS TESTAK //

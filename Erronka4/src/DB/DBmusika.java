@@ -13,7 +13,11 @@ import Modelo.Albuma;
 import Modelo.Musikaria;
 
 public class DBmusika {
-
+	
+	/**
+	 * Musikari guztiak lortzen ditu
+	 * @return ArrayList<Musikaria> musikari guztien ArrayLista
+	 */
 	public ArrayList<Musikaria> musikaDeskrubitu() {
 		Konexioa konexioa2 = new Konexioa();
 		Connection konexioa = konexioa2.konektatu();
@@ -31,7 +35,7 @@ public class DBmusika {
 				Musikaria musikaria = new Musikaria(rs.getString("IzenArtistikoa"),rs.getString("deskribapena"),rs.getBlob("irudia") );
 				ArtistaLIst.add(musikaria);
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -39,6 +43,11 @@ public class DBmusika {
 		return ArtistaLIst;
 	}
 	
+	/**
+	 * Artista zehatz baten album guztiak lortzen ditu
+	 * @param aukeratutakoArtista Albumak lortzeko behar duzun artista
+	 * @return ArrayList<Albuma> albumen Arraylista
+	 */
 	public ArrayList<Albuma> Albumlist(String aukeratutakoArtista) {
 		Konexioa konexioa2 = new Konexioa();
 		Connection konexioa = konexioa2.konektatu();
@@ -69,12 +78,16 @@ public class DBmusika {
 		konexioa2.deskonektatu();
 		return AlbumList;
 	}
-
+	
+	/**
+	 * Album zehatz baten abestiak lortzen ditu
+	 * @param selectedAlbum albumaren izena
+	 * @return ArrayList<Abestia> Albumaren abesti guztiak
+	 */
 	public ArrayList<Abestia> lortuAbestiak(String selectedAlbum){
 		Konexioa konexioa2 = new Konexioa();
 		Connection konexioa = konexioa2.konektatu();
 		ArrayList<Abestia> abestiList = new ArrayList<>();
-		System.out.println(selectedAlbum);
 		try {
 				String kontsulta = "select * \r\n"
 					+ "from abestiErrepHandienak join audioa using(idAudio)\r\n"
@@ -87,7 +100,6 @@ public class DBmusika {
 			while (rs.next()) {
 				Abestia abesti = new Abestia(rs.getInt("idAudio"),rs.getString("iraupena"),rs.getString("izena"),(Blob) rs.getBlob("irudia"));
 				abestiList.add(abesti);
-				System.out.println(abesti);
 			}
 
 		} catch (SQLException e) {
@@ -100,11 +112,11 @@ public class DBmusika {
 	
 
 	/*
-	 * Parametroz bezala jasotako abestiaren Id-a String bezala bueltatzen du
-	 * @param username
-	 * @return
+	 * Abestiaren ida lortzen du
+	 * @param username String abestiaren izena
+	 * @return String abestiaren id-a
 	 */
-	public String lortuAbestiId(String izena) {
+	public String lortuAbestiId(String abestiIzena) {
 		
 		String id = null ;
 
@@ -114,10 +126,10 @@ public class DBmusika {
 		Statement stm;
 		
 		try {
-			String kontsulta = "select idAudio from audioa where izena='"+izena+"'";
+			String kontsulta = "select idAudio from audioa where izena='"+abestiIzena+"'";
 			stm = konexioa.createStatement();
 			rs = stm.executeQuery(kontsulta);
-		} catch (SQLException e) {
+		} catch (SQLException e) { 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -1,21 +1,20 @@
 package Modelo;
 
-import com.mysql.cj.jdbc.Blob;
+import java.sql.Blob;
 
 public class Musikaria extends Artista {
-
-	public Musikaria( String izenaartistikoa, String deskribapena, Blob blob) {
-		super(izenaartistikoa, deskribapena, blob);
-		
-	}
-
+    
+    public Musikaria(String izenaartistikoa, String deskribapena, Blob blob) {
+        super(izenaartistikoa, deskribapena, blob);
+    }
+    @Override
+    public String toString() {
+        return izenaArtistikoa;
+    }
 	@Override
-	public String toString() {
-		return "Musikaria [ izenaArtistikoa="
-				+ izenaArtistikoa + ", deskribapena=" + deskribapena + "]";
+	public int hashCode() {
+		return super.hashCode();
 	}
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -27,7 +26,5 @@ public class Musikaria extends Artista {
 		return true;
 	}
 
-
-	
-
+    
 }

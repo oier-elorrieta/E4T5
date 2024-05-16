@@ -19,6 +19,7 @@ import Modelo.Albuma;
 import Modelo.Musikaria;
 import Modelo.Podcast;
 import Modelo.Podcasterra;
+import Modelo.LogeazioDatuak;
 
 import javax.swing.border.BevelBorder;
 import javax.swing.JComboBox;
@@ -29,7 +30,7 @@ import javax.swing.JTextPane;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
-public class podcastGuztiak extends JFrame {
+public class PodcastGuztiak extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -37,16 +38,15 @@ public class podcastGuztiak extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public podcastGuztiak(Podcasterra podcaster) {
+	public PodcastGuztiak(LogeazioDatuak logData, Podcasterra podcaster) {
 		
+	
 		DB.DBpodcast dbPodcast = new DB.DBpodcast();
 		
-		System.out.println(podcaster.getIzenaartistikoa());
 		
         ArrayList<Podcast> podcastList = dbPodcast.lortuPodcast(podcaster.getIzenaartistikoa());
-		
-        System.out.println("kk");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 804, 474);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -62,7 +62,7 @@ public class podcastGuztiak extends JFrame {
 		btnAtzera.addActionListener(new ActionListener() {
 		        public void actionPerformed(ActionEvent e) {
 		        	
-		        	PodcasterrakDeskubritu PodcasterrakDeskubritu = new PodcasterrakDeskubritu();
+		        	PodcasterrakDeskubritu PodcasterrakDeskubritu = new PodcasterrakDeskubritu(logData);
 		        	PodcasterrakDeskubritu.setVisible(true);
 		            dispose();
 		        }
@@ -80,30 +80,23 @@ public class podcastGuztiak extends JFrame {
 		lblNewLabel_1.setBounds(111, 273, 104, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JButton btnErabiltzailea = new JButton("");
-		btnErabiltzailea.setBounds(661, 11, 89, 23);
-		contentPane.add(btnErabiltzailea);
-		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel.setBounds(10, 68, 470, 183);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JComboBox cbAlbumak = new JComboBox();
-		cbAlbumak.setBounds(10, 7, 450, 22);
-		panel.add(cbAlbumak);
+		JComboBox cbPodcast = new JComboBox();
+		cbPodcast.setBounds(10, 7, 450, 22);
+		panel.add(cbPodcast);
 		
 		for(int i=0; i<podcastList.size();i++) {	
-			cbAlbumak.addItem(podcastList.get(i));
+			cbPodcast.addItem(podcastList.get(i));
 			}
-	
-		System.out.println(podcastList);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 314, 768, 110);
 		contentPane.add(scrollPane);
-		System.out.println(podcaster.getIzenaartistikoa());
 		
 		JTextPane tPInfoArtista = new JTextPane();
 		scrollPane.setViewportView(tPInfoArtista);
@@ -112,9 +105,9 @@ public class podcastGuztiak extends JFrame {
 		scrollPane.setColumnHeaderView(tPInfoArtista);
 		tPInfoArtista.setText(podcaster.getDeskribapena());
 		
-		JButton btnNewButton = new JButton("Aurrera");
-		btnNewButton.setBounds(10, 269, 89, 23);
-		contentPane.add(btnNewButton);
+		JButton btnAurrera = new JButton("Aurrera");
+		btnAurrera.setBounds(10, 269, 89, 23);
+		contentPane.add(btnAurrera);
 		
 		ImageIcon icon = null;
         try {
@@ -129,9 +122,30 @@ public class podcastGuztiak extends JFrame {
 		lblNewLabel_2.setBounds(525, 83, 238, 144);
 		contentPane.add(lblNewLabel_2);
 		
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnErabiltzailea = new JButton("");
+		btnErabiltzailea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				try {
+					ErabiltzaileDatuakAldatu frame = new ErabiltzaileDatuakAldatu(logData);
+					frame.setVisible(true);
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+		});
+		btnErabiltzailea.setBounds(608, 11, 170, 23);
+		contentPane.add(btnErabiltzailea);
+		btnErabiltzailea.setText(logData.getLogeatuta());
+		
+		btnAurrera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				try {
+					ErrepPodcast frame = new ErrepPodcast(logData,podcaster,podcastList.get(cbPodcast.getSelectedIndex()));
+					frame.setVisible(true);
+				}catch(Exception e2){
+					e2.printStackTrace();
+				}
 			}
 		});
 

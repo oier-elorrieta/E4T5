@@ -6,14 +6,13 @@ import java.util.Objects;
 public class Playlist {
 	private int idList;
 	private String izenburua;
-	private Date sorrera_data;
+	private String sorrera_data;
     
     // KONTRUKTOREA //
-    public Playlist(int idList, String izenburua, Date sorrera_data) {
-		super();
+    public Playlist(int idList, String izenburua, String data) {
 		this.idList = idList;
 		this.izenburua = izenburua;
-		this.sorrera_data = sorrera_data;
+		this.sorrera_data = data;
 	}
 
     // GETTERRAK ETA SETTERRAK //
@@ -33,11 +32,11 @@ public class Playlist {
   		this.izenburua = izenburua;
   	}
 
-  	public Date getSorrera_data() {
+  	public String getSorrera_data() {
   		return sorrera_data;
   	}
 
-  	public void setSorrera_data(Date sorrera_data) {
+  	public void setSorrera_data(String sorrera_data) {
   		this.sorrera_data = sorrera_data;
   	}
 
@@ -58,7 +57,7 @@ public class Playlist {
     // TOSTRING //
 	@Override
 	public String toString() {
-		return "Playlist [idlist=" + idList + ", izenburua=" + izenburua + ", sorrera_data=" + sorrera_data + "]";
+		return "Izenburua=" + izenburua;
 	}
    
 

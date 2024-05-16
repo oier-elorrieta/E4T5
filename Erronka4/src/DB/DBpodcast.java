@@ -8,12 +8,18 @@ import java.util.ArrayList;
 
 import com.mysql.cj.jdbc.Blob;
 
+import Modelo.Playlist;
 import Modelo.Podcast;
 import Modelo.Podcasterra;
 
 public class DBpodcast {
-
-	public ArrayList<Podcast> lortuPodcast(String selectedPodcaster) {
+	
+	/**
+	 *Podcaster zehatz batek dituen podcast guztiak lortzen ditu 
+	 * @param podcaster Podcasterraren izena
+	 * @return ArrayList<Podcast> podcast guztiak bueltatzen ditu
+	 */
+	public ArrayList<Podcast> lortuPodcast(String podcaster) {
 		ArrayList<Podcast> podcastList = new ArrayList<>();
 
 		Konexioa konexioa2 = new Konexioa();
@@ -21,10 +27,10 @@ public class DBpodcast {
 		konexioa2.konektatu();
 		Statement stm;
 		ResultSet rs;
-		
+ 
 		try {
 			String kontsulta = "SELECT * FROM db_spotify5.podcaster join podcast using(idPodcaster) join audioa using(idAudio) where izenArtistikoa = '"
-					+ selectedPodcaster + "'";
+					+ podcaster + "'";
 			stm = konexioa.createStatement();
 			rs = stm.executeQuery(kontsulta);
 
@@ -43,10 +49,10 @@ public class DBpodcast {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Podcasterr guztiak lortzen ditu
+	 * @return ArrayList<Podcasterra> podcaster guztiak lortzen ditu
 	 */
-	public ArrayList<Podcasterra> podcastDeskubritu() {
+	public ArrayList<Podcasterra> podcasterDeskubritu() {
 		ArrayList<Podcasterra> podcasterList = new ArrayList<>();
 		
 		Konexioa konexioa2 = new Konexioa();
@@ -72,5 +78,39 @@ public class DBpodcast {
 		konexioa2.deskonektatu();
 		return podcasterList;
 	}
+	
+	/**
+	 * Podcast zehazt baten id-a lortzen du
+	 * @param podcast Podcast objektua
+	 * @return Objektuaren podcastaren id-a 
+	 */
+    public String lortuPodcastId(Podcast podcast) {
+		
+		String id = null ;
+
+		Konexioa konexioa2 = new Konexioa();
+		Connection konexioa = konexioa2.konektatu();
+		ResultSet rs = null;
+		Statement stm;
+		
+		try {
+			String kontsulta = "select idAudio from audioa where izena='"+podcast.getIzenburua()+"'";
+			stm = konexioa.createStatement();
+			rs = stm.executeQuery(kontsulta);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			while (rs.next()) {
+				id = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		konexioa2.deskonektatu();
+		return id;
+		
+	}
+	
 
 }

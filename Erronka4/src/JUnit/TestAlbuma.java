@@ -20,55 +20,68 @@ public class TestAlbuma {
 	}
 
 	// TEST GETTERS AND SETTERS //
+	
+	@Test
 	public void TestGetIdAlbum() {
 		assertEquals(1, alb1.getIdAlbum());
 	}
 
+	@Test
 	public void TestSetIdAlbum() {
 		alb1.setIdAlbum(2);
 		assertEquals(2, alb1.getIdAlbum());
 	}
 
+	@Test
 	public void TestGetIzenburua() {
 		assertEquals("izenburua", alb1.getIzenburua());
 	}
 
+	@Test
 	public void TestSetIzenburua() {
 		alb1.setIzenburua("Lemonade");
 		assertEquals("Lemonade", alb1.getIzenburua());
 	}
 
+	@Test
 	public void TestGetUrtea() {
 		assertEquals(2024, alb1.getUrtea());
 	}
 
+	@Test
 	public void TestSetUrtea() {
 		alb1.setUrtea(2023);
 		assertEquals(2023, alb1.getUrtea());
 	}
 
+	@Test
 	public void TestGetGeneroa() {
 		assertEquals("pop", alb1.getGeneroa());
 	}
 
+	@Test
 	public void TestSetGeneroa() {
 		alb1.setGeneroa("k-pop");
 		assertEquals("k-pop", alb1.getGeneroa());
 	}
 
+	@Test
 	public void TestGetIdArtista() {
 		assertEquals(1, alb1.getIdArtista());
 	}
 
+	@Test
 	public void TestSetIdArtista() {
 		alb1.setIdArtista(2);
 		assertEquals(2, alb1.getIdArtista());
 	}
 
+	@Test
 	public void TestGetAbestiKop() {
 		assertEquals(3, alb1.getAbestiKop());
 	}
 
+	@Test
 	public void TestSetAbestiKop() {
 		alb1.setAbestiKop(4);
 		assertEquals(4, alb1.getAbestiKop());

@@ -17,15 +17,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import Modelo.Albuma;
 import Modelo.Musikaria;
-import Modelo.logeazioDatuak;
+import Modelo.LogeazioDatuak;
 
 import javax.swing.border.BevelBorder;
 import javax.swing.JComboBox;
 import java.awt.Color;
 import javax.swing.border.EtchedBorder;
-
-import DB.DBuser;
-
 import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
 import javax.swing.JScrollBar;
@@ -39,10 +36,11 @@ public class ArtistaLeihoa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ArtistaLeihoa(DBuser logData,Musikaria musikari) {
+	public ArtistaLeihoa(LogeazioDatuak logData,Musikaria musikari) {
 		DB.DBmusika dbMusika = new DB.DBmusika();
         ArrayList<Albuma> Albumlist = dbMusika.Albumlist(musikari.getIzenaartistikoa());
 		
+        
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 804, 474);
 		contentPane = new JPanel();
@@ -79,8 +77,19 @@ public class ArtistaLeihoa extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnErabiltzailea = new JButton("");
-		btnErabiltzailea.setBounds(661, 11, 89, 23);
+		btnErabiltzailea.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					ErabiltzaileDatuakAldatu frame = new ErabiltzaileDatuakAldatu(logData);
+					frame.setVisible(true);
+				} catch (Exception e2) {
+					e2.printStackTrace();
+				}
+			}
+		});
+		btnErabiltzailea.setBounds(592, 11, 158, 23);
 		contentPane.add(btnErabiltzailea);
+		btnErabiltzailea.setText(logData.getLogeatuta());
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
