@@ -160,13 +160,13 @@ public class ErrepAbesti extends JFrame {
 						if (playlistList.size() != 0) {
 							Playlist selectedPlaylist = playlistList.get(comboBox.getSelectedIndex());
 							
-							if(dbPlaylist.abestiaPlaylisteanDago(Integer.parseInt(dbMusika.lortuAbestiId(erreprodukzio.getAbesti())),playlistList.get(comboBox.getSelectedIndex()).getIdlist())==false ) {
+							if(dbPlaylist.kantaPlaylisteanDago(Integer.parseInt(dbMusika.lortuAbestiId(erreprodukzio.getAbesti())),playlistList.get(comboBox.getSelectedIndex()).getIdlist())==false ) {
 								 dbPlaylist.insertKantaPlaylistean(erreprodukzio.getAbestiList().get(erreprodukzio.getPosizioa()) , selectedPlaylist.getIdlist());
 								 JOptionPane.showMessageDialog(ErrepAbesti.this,
 											"Gordeta", "Adi!",
 											JOptionPane.WARNING_MESSAGE);
 							}else {
-								JOptionPane.showMessageDialog(ErrepAbesti.this,
+								JOptionPane.showMessageDialog(ErrepAbesti.this, 
 										"Abesti hau jadanik dago playlistean", "Adi!",
 										JOptionPane.WARNING_MESSAGE);
 							}

@@ -41,7 +41,7 @@ public class MenuAukeraketa extends JFrame {
 		
 		JButton btnAtzera = new JButton("Atzera");
 		btnAtzera.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { 
 				dispose();
 				Login frame = new Login();
 				frame.setVisible(true);	
@@ -52,6 +52,17 @@ public class MenuAukeraketa extends JFrame {
 		
 		
 		JButton btnNirePlaylist = new JButton("Nire Playlist-ak");
+		btnNirePlaylist.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				try {
+					playListMenu frame = new playListMenu(logData);
+					frame.setVisible(true);
+				} catch (Exception e3) {
+					e3.printStackTrace();
+				}
+			}
+		});
 		btnNirePlaylist.setBounds(131, 201, 183, 23);
 		contentPane.add(btnNirePlaylist);
 		

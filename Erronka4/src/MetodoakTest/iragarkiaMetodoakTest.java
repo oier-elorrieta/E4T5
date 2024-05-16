@@ -38,7 +38,6 @@ public class iragarkiaMetodoakTest {
 	public void testErrepDago() {
 		iragarkiaMetodoak.erreproduzitu();
 		assertTrue(iragarkiaMetodoak.errepDago());
-		iragarkiaMetodoak.audioaAmatatu();
 	}
 	
 	

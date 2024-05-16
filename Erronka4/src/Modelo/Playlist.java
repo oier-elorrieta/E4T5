@@ -14,7 +14,9 @@ public class Playlist {
 		this.izenburua = izenburua;
 		this.sorrera_data = data;
 	}
-
+    
+    
+    
     // GETTERRAK ETA SETTERRAK //
     public int getIdlist() {
   		return idList;
@@ -58,6 +60,11 @@ public class Playlist {
 	@Override
 	public String toString() {
 		return "Izenburua=" + izenburua;
+	}
+
+	public Abestia[] getAbestiak() {
+		// TODO Auto-generated method stub
+		return null;
 	}
    
 

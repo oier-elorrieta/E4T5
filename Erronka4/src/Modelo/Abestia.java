@@ -10,6 +10,7 @@ public class Abestia {
     private String Iraupena;
     private String Izenburua;
     private Blob irudia;
+    private int errep;
     // KONSTRUKTOREA //
     
     public Abestia( int idAudio, String iraupena, String izenburua, Blob irudia) {
@@ -18,10 +19,18 @@ public class Abestia {
         Izenburua = izenburua;
         this.irudia = irudia;
     }
+    
+    public Abestia( int idAudio, String iraupena, String izenburua, Blob irudia, int errep) {
+        IdAudio = idAudio;
+        Iraupena = iraupena;
+        Izenburua = izenburua;
+        this.irudia = irudia;
+        this.errep = errep;
+    }
 
     // GETTERRAK ETA SETTERRAK //
-
-    public int getIdAudio() {
+   
+	public int getIdAudio() {
         return IdAudio;
     }
 
@@ -59,6 +68,10 @@ public class Abestia {
     public String toString() {
         return "Izenburua=" + Izenburua +" | Iraupena=" + Iraupena ;
     }
+	
+	public String toStringErrep() {
+		 return Izenburua +" | Iraupena=" + Iraupena +" | Entzunaldiak: "+errep;
+		 }
 
 	@Override
 	public boolean equals(Object obj) {

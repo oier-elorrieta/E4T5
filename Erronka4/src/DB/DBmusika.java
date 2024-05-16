@@ -144,4 +144,26 @@ public class DBmusika {
 		return id;
 		
 	}
+	
+
+	public Abestia lortuAbestiaIDarekin(int id) {
+		Konexioa konexioa2 = new Konexioa();
+		Connection konexioa = konexioa2.konektatu();
+		Abestia abestia = null;
+		try {
+			String kontsulta = "Select * from audioa where idAudio='"+id+"'";
+			Statement stm = konexioa.createStatement();
+			ResultSet rs = stm.executeQuery(kontsulta);
+
+			rs.next();
+			abestia = new Abestia(rs.getInt("idAudio"),rs.getString("iraupena"),rs.getString("izena"),(Blob) rs.getBlob("irudia"));
+
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		konexioa2.deskonektatu();
+		return abestia;
+	}
 }
