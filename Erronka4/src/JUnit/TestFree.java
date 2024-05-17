@@ -17,7 +17,7 @@ public class TestFree {
 	@Before
 	public void setUp() throws Exception {
 	String data = "2024-04-18";
-	f1 = new UserFree("izena","Abizena","Erabiltzailea","Pasahitza",data);
+	 f1 = new UserFree("izena","Abizena","Erabiltzailea","Pasahitza",data);
 	}
 	 
 	//TEST GETTERS AND SETERS

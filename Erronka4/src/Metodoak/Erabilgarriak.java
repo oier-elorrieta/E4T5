@@ -1,31 +1,20 @@
 package Metodoak;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
+
+
 public class Erabilgarriak {
 
-	// Funtzio honek zenbakiak balidatzen ditu
-	/**
-	 * Sartutako String-a zenbaki osoa bada True itzultzen du
-	 * 
-	 * @param lerroa
-	 * @return
-	 */
-	public boolean zbkDa(String lerroa) {
-		try {
-			Integer.parseInt(lerroa);
-			return true;
-		} catch (NumberFormatException e) {
-			return false;
-		}
-	}
 
 	/**
 	 * Gaurko data String bezala bueltazen du
@@ -67,7 +56,6 @@ public class Erabilgarriak {
 
 			return !dataOr.isBefore(dataMin) && !dataOr.isAfter(dataMax);
 		} catch (DateTimeParseException e) {
-			System.out.println("Data txarto sartuta");
 
 			return false;
 		}
@@ -78,7 +66,7 @@ public class Erabilgarriak {
 	 * @param passwordField1
 	 * @param passwordField2
 	 * @return
-	 */
+	 */ 
 	public static boolean pasahitzBerdinak(JPasswordField passwordField1, JPasswordField passwordField2) {
 
 		char[] password1 = passwordField1.getPassword();
@@ -86,5 +74,27 @@ public class Erabilgarriak {
 
 		return new String(password1).equals(new String(password2));
 	}
+	
+	/*
+	 * Parametroz jasotako denbora segunduetatik minutuetara bilakatzen du
+	 * @param int 
+	 */
+	 public static String lortuDenboraMinutuetan(int segundo) {
+	        int minutos = segundo / 60;
+	        int segundosRestantes = segundo % 60;
+	        
+	        String denboraOndo = minutos + " : " + segundosRestantes;
 
+	        return denboraOndo;
+	    }
+	 
+	 /**
+	  * Momentuan dagoen ordua bueltatzen du 
+	  * @return
+	  */
+	    public static String unekoOrduaLortu() {
+	        SimpleDateFormat formatua = new SimpleDateFormat("HH:mm:ss");
+	        Date unekoData = new Date();
+	        return formatua.format(unekoData);
+	    }
 }

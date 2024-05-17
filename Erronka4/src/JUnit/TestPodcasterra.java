@@ -15,31 +15,20 @@ public class TestPodcasterra {
 			static Podcasterra po1;
 			@Before
 			public void setUp() throws Exception {
-			po1 = new Podcasterra(1, "izenArtistikoa", "deskribapena",1);
+			po1 = new Podcasterra("izenArtistikoa", "deskribapena",null);
 			}
 
 			// GETTERRAK ETA SETTERRAK TESTAK //
 			
 			@Test
-			public void testGetIdArtista() {
-				assertEquals(1, po1.getIdartista());
+			public void testGetIzenArtistikoa() {
+				assertEquals("izenArtistikoa", po1.getIzenaartistikoa());
 			}
-			
+
 			@Test
-			public void testSetIdArtista() {
-				po1.setIdartista(0);
-				assertEquals(0, po1.getIdartista());
-			}
-			
-			@Test
-			public void testGetIdMusikari() {
-			assertEquals(1,po1.getPodacasterID());
-			}
-			
-			@Test
-			public void testSetIdMusikari() {
-				po1.setPodacasterID(0);
-				assertEquals(0, po1.getPodacasterID());
+			public void testSetIzenArtistikoa() {
+				po1.setIzenaartistikoa("Rosalia");
+				assertEquals("Rosalia", po1.getIzenaartistikoa());
 			}
 			
 			@Test
@@ -58,10 +47,10 @@ public class TestPodcasterra {
 			
 			@Test
 			public void testToString() {
-				String txtMusikaria = po1.toString();
-				String esperatutakoArtista = "Musikaria [musikariaID=" + po1.getPodacasterID()+", idArtista=" + po1.getIdartista()
-						+ ", izenaArtistikoa=" + po1.getIzenaartistikoa() + ", deskribapena=" + po1.getDeskribapena() 
-						+ "]";;
+				String txtPodcasterra = po1.toString();
+				String esperatutakoPodcasterra = "Musikaria [izenaArtistikoa=" + po1.getIzenaartistikoa() + ", deskribapena="
+						+ po1.getDeskribapena() + "]";
+				;
 			}
 			
 			//EQUALS TEST//
@@ -83,7 +72,7 @@ public class TestPodcasterra {
 
 				@Test
 				public void TestEquals(){
-				Podcasterra po2 = new Podcasterra(1, "izenArtistikoa", "deskribapena",1);
+				Podcasterra po2 = new Podcasterra("izenArtistikoa", "deskribapena",null);
 				assertTrue(po1.equals(po2));
 				}
 

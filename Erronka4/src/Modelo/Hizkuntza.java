@@ -1,50 +1,35 @@
 package Modelo;
 
-import java.util.Objects;
-
 public class Hizkuntza {
 	
-	private String hizkuntzaId;
-	private String desk;
+	protected String hizkuntzaID;
+	protected String desk;
 	
-	public Hizkuntza(String hizkuntzaid, String desk) {
-		this.hizkuntzaId = hizkuntzaid;
+	public Hizkuntza(String hizkuntzaID, String desk) {
+		this.hizkuntzaID = hizkuntzaID;
 		this.desk = desk;
 	}
 
-	
-
-	public String getHizkuntzaid() {
-		return hizkuntzaId;
+	public String getHizkuntzaID() {
+		return hizkuntzaID;
 	}
 
-
-
-	public void setHizkuntzaid(String hizkuntzaid) {
-		this.hizkuntzaId = hizkuntzaid;
+	public void setHizkuntzaID(String hizkuntzaID) {
+		this.hizkuntzaID = hizkuntzaID;
 	}
-
-
 
 	public String getDesk() {
 		return desk;
 	}
 
-
-
 	public void setDesk(String desk) {
 		this.desk = desk;
 	}
 
-
-	
 	@Override
 	public String toString() {
-		return  hizkuntzaId;
+		return  hizkuntzaID;
 	}
-
-	
-	
 	
 	
 	
